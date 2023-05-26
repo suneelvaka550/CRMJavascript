@@ -1,0 +1,3705 @@
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title></title>
+<!-- <link rel="stylesheet" type="text/css" href="./css/style.css"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<style type="text/css">
+    .table-information {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .prf-del {
+        border-bottom: 3px solid #dce4e8;
+    }
+
+    .prof-icon {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background: #ceeff0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .prof-icon .profile-icon {
+        color: #64ced2;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .prf-nm {
+        margin-left: 10px;
+    }
+
+    .prf-nm .det-tex-colr {
+        color: #8d98a8;
+    }
+
+    .prf-nm .det-colr {
+        color: #525252;
+    }
+
+    .button-cvt {
+        margin: 30px;
+        display: flex;
+        justify-content: flex-end;
+        margin: 25px 30px 0px 0px;
+    }
+
+    .button-cvt .btu-cvt {
+        border-radius: 5px;
+        padding: 4px 12px 4px 12px;
+        background-color: #249eb1;
+        color: white;
+        border: none;
+        margin-right: 2rem;
+    }
+
+    .button-cvt .btu-et {
+        border-radius: 5px;
+        padding: 2px 12px 2px 12px;
+        background-color: #ffffff;
+        color: #999999;
+        border-color: #999999;
+    }
+
+    .ld-info {
+        border: 2px solid #dce4e8;
+        margin: 30px;
+        box-shadow: 0px 1px 5px -3px;
+        padding-bottom: 30px;
+    }
+
+    .ld-info h4 {
+        border-bottom: 2px solid #dce4e8;
+        padding: 12px 12px 12px 40px;
+        font-size: 20px !important;
+        font-weight: 700 !important;
+    }
+
+    .ld-info h5 {
+        margin-left: 3%;
+        margin-top: 10px;
+        font-weight: 700 !important;
+        font-size: 15px;
+        padding-left: 29px;
+    }
+
+    .ld-info .in-table {
+        justify-content: space-between;
+        align-items: center;
+        line-height: 36px;
+        margin: 0px 50px;
+    }
+
+    .in-table-add.row.d-flex {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 50px;
+        margin: 0px 100px 0px 155px;
+    }
+
+    .side-heading {
+        font-size: 20px;
+        font-weight: 700 !important;
+        padding-left: 30px;
+    }
+
+    .ld-info .det-tex-colr {
+        color: #8d98a8;
+        text-align: right;
+        font-size: 13px;
+    }
+
+    .ld-info .det-colr {
+        color: #212b3d;
+        /* margin-left: 50px; */
+        padding-left: 50px;
+        font-size: 13px;
+    }
+
+    .space-tab {
+        padding-right: 18vw;
+    }
+
+    .nt-att {
+        margin: 30px;
+        border: 2px solid #dce4e8;
+        box-shadow: 0px 1px 5px -3px;
+    }
+
+    h4 {
+        border-bottom: 2px solid #dce4e8;
+        padding: 10px 0px 10px 20px;
+    }
+
+    .ref {
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .ref .new {
+        border: none;
+        background-color: #249eb1;
+        border-radius: 3px;
+        padding: 1px 10px 5px 10px;
+        color: white;
+        margin-left: 10px;
+    }
+
+    .fitter-search svg {
+        margin-left: 10px;
+    }
+
+    .btn-icon {
+        background: none;
+        border: none;
+    }
+
+    .ad-in-sps {
+        padding: 10px;
+    }
+
+    .drop-filter select {
+        border: 1px Solid #dddddd;
+        border-radius: 3px;
+        background-color: #f7f7f7;
+        padding: 2px 5px 5px 5px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .notes-attach-modal {
+        display: block;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5215686275);
+    }
+
+    .notes-attach-modal-content {
+        padding: 15px;
+        border-radius: 19px !important;
+    }
+
+    /* 
+    .modal .modal-dialog .modal-content .modal-body {
+        max-height: 30vw;
+    }
+ */
+
+    .popup-note-att input {
+        color: #4f5152;
+        width: 415px;
+        height: 41px;
+        border-radius: 4px;
+        border: 1px solid #e1e4e6;
+        margin-bottom: 15px;
+    }
+
+    .btn-save {
+        border: none;
+        background-color: #48757d;
+        /* padding: 10px 17px 10px 17px; */
+        border-radius: 10px;
+        color: white;
+        height: 41px;
+        width: 66px;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .btn-save:hover {
+        background-color: #70c3d0;
+
+        color: white;
+    }
+
+    .btn-cnl {
+        border: 1px solid #a5a7a9;
+        background-color: #ffffff;
+        /* padding: 10px 17px 10px 17px; */
+        border-radius: 10px;
+        color: rgba(153, 153, 153, 0.6);
+
+        height: 41px;
+        width: 80px;
+        padding: 0 !important;
+        margin: 0 !important;
+        margin-left: 10px !important;
+    }
+
+    .btn-cnl:hover {
+        border: 1px solid #e1e4e6;
+        background-color: #646464;
+        color: #faf7f7;
+    }
+
+    /*     Popup for grid view */
+    .sample-card {
+        border: 1px solid gray;
+        padding: 20px;
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px solid #dce4e8;
+        border-radius: 10px;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.161);
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        margin: 10px 30px !important;
+    }
+
+    .sample-card .sp-drop {
+        background-color: #ffffff00;
+        border: none;
+    }
+
+    .sample-card .sp-drop:hover {
+        background-color: #ffffff00 !important;
+        border: none !important;
+        box-shadow: none;
+    }
+
+    .sample-card .sp-drop:focus {
+        background-color: #ffffff00 !important;
+        border: none !important;
+        box-shadow: none;
+    }
+
+    .sample-card .dp-menu {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        transform: translate3d(-93px, 44px, 0px) !important;
+        border: 2px solid #b8b8b821;
+    }
+
+    .dp-menu2 {
+        border: 2px solid rgba(184, 184, 184, 0.13);
+        transform: translate3d(-93px, 43px, 0px) !important;
+    }
+
+    .sample-card .dp-menu2::after {
+        transform: rotate(45deg);
+        content: "";
+        height: 20px;
+        width: 20px;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        top: -10px;
+        right: 21px;
+        border-left: 1px solid #b8b8b878;
+        border-top: 1px solid #b8b8b878;
+        border-radius: 0.25rem;
+        z-index: -1 !important;
+        /* box-shadow: -1px -1px 0px rgba(0, 0, 0, 0.15); */
+        border-radius: 5px;
+    }
+
+    .sample-card .dp-menu::after {
+        transform: rotate(45deg);
+        content: "";
+        height: 20px;
+        width: 20px;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        top: -10px;
+        right: 21px;
+        border-left: 1px solid #b8b8b878;
+        border-top: 1px solid #b8b8b878;
+        border-radius: 0.25rem;
+        z-index: -1 !important;
+        /* box-shadow: -1px -1px 0px rgba(0, 0, 0, 0.15); */
+        border-radius: 5px;
+    }
+
+    .prof-icon {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        background: #ceeff0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .items-detiles {
+        border-left: 2px solid #e2e6ed;
+    }
+
+    .detiles-data h5 {
+        padding-left: 20px;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+
+    .detiles-data ul li {
+        list-style-type: none;
+        line-height: 20px;
+        padding-bottom: 10px;
+    }
+
+    .det-tex-colr {
+        color: #8d98a8;
+    }
+
+    .det-colr {
+        color: #525252;
+        text-transform: capitalize;
+    }
+
+    .detiles-data ul {
+        margin-bottom: -5px !important;
+        padding-left: 20px;
+    }
+
+    .sample-card:hover {
+        background-color: #8bccd634;
+    }
+
+    .dp-icon {
+        border-radius: 5px;
+        /* padding: 1px 8px; */
+        margin: 4px;
+        color: #8d98a8;
+        position: relative;
+    }
+
+    .dropdown p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        border: 1px solid #8d98a8;
+        border-radius: 50%;
+    }
+
+    .drop-down {
+        height: 35px;
+        top: -17px;
+        left: -11px;
+    }
+
+    .dropdown-menu.show {
+        position: absolute;
+        transform: translate3d(-93px, 44px, 0px) !important;
+
+        top: 0px;
+        left: 0px;
+        will-change: transform;
+    }
+
+    .time {
+        text-align: end;
+    }
+
+    .dp-ic {
+        color: black;
+    }
+
+    .detiles-data {
+        margin-right: 30px;
+    }
+
+    .detiles-data ul li a {
+        color: #4bbadd !important;
+        cursor: pointer;
+    }
+
+    .cls {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        border: none;
+        background-color: #ffff;
+    }
+
+    .view-grid-data {
+        white-space: nowrap;
+        width: 450px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .lead-popup-bg {
+        position: fixed;
+        height: 100%;
+        top: 0;
+        background-color: #00000047;
+        width: 100%;
+        overflow: hidden !important;
+    }
+
+    .btn-icon {
+        background: none;
+        border: none;
+    }
+
+    .ld-pop {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+    }
+
+    .ld-pop .ld-popup {
+        width: 600px;
+        border: none;
+        background: #ffffff;
+        border-radius: 10px;
+        height: 250px;
+        font-size: 13px;
+    }
+
+    .ld-req {
+        border-bottom: 2px solid #e1e4e6;
+        padding: 5px;
+    }
+
+    .ld-req h5 {
+        margin: 0px 0px 10px 0px;
+        font-weight: 700;
+    }
+
+    .ld-req-popup {
+        margin: 20px;
+    }
+
+    .ld-note {
+        padding: 20px 0px 10px 10px;
+        margin: 0px !important;
+        color: #54595f;
+    }
+
+    .ld-txt {
+        color: #4bbadd;
+        cursor: pointer;
+    }
+
+    textarea {
+        overflow: auto;
+        border: 1px solid #e1e4e6;
+        resize: vertical;
+        width: 100%;
+    }
+
+    .btn-save {
+        border: none;
+        background-color: #1f8999;
+        padding: 10px 17px 10px 17px;
+        border-radius: 10px;
+        color: white;
+    }
+
+    .btn-save:hover {
+        background-color: #0eacc4;
+
+        color: white;
+    }
+
+    .btn-cnl {
+        border: 1px solid #e1e4e6;
+        background-color: #ffffff;
+        padding: 10px 17px 10px 17px;
+        border-radius: 10px;
+        color: rgba(153, 153, 153, 0.6);
+        margin-left: 10px;
+    }
+
+    .btn-cnl:hover {
+        border: 1px solid #e1e4e6;
+        background-color: rgba(153, 153, 153, 0.986);
+        color: #ffff;
+        margin-left: 10px;
+    }
+
+    .notes-attachments-header {
+        border: none;
+        padding: 0px;
+    }
+
+    .notes-attachments-body {
+        text-align: center;
+    }
+
+    .btn-footer {
+        border: none;
+        justify-content: center;
+    }
+
+    .notes-attachments-body {
+        padding: 2rem;
+    }
+
+    .notes-attachments-delete {
+        background: rgb(0 0 0 / 0.5);
+    }
+
+    .notes-attachments-dialog {
+        margin: 6rem auto;
+    }
+
+    .lead-info {
+        height: calc(100vh - 150px) !important;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    /* for create task css */
+    .formPopup {
+        display: none;
+        position: fixed;
+        left: 56%;
+        top: 12%;
+        transform: translate(-50%, 5%);
+        z-index: 9;
+        box-shadow: -1px 3px 9px 0 #807f7fcc;
+        border-radius: 10px;
+    }
+
+    .add-items-popup .formContainer {
+        width: 480px !important;
+        margin: 25px;
+    }
+
+    .formContainer {
+        width: 700px;
+        background-color: #fff;
+        border-radius: 8px;
+    }
+
+    .discountPopup-header {
+        padding: 10px;
+        background: #fff;
+        border-radius: 8px 8px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e1e4e6;
+    }
+
+    .discountPopup-header h2 {
+        margin-bottom: 0px;
+        font-size: 20px;
+
+        font-weight: 600;
+        color: #000;
+    }
+
+    .c-close {
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+
+    .discountPopup-body {
+        padding: 15px;
+        min-height: 200px;
+        max-height: 350px;
+        overflow: hidden auto;
+    }
+
+    .discountPopup-footer {
+        /* padding: 10px;
+      border-top: 1px solid #eee5e9; */
+        border-radius: 0 0 8px 8px;
+        text-align: left;
+    }
+
+    .btn:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    .add-items-popup {
+        transform: translate(-42%, 5%) !important;
+        background: white;
+    }
+
+    .popup .popup-data {
+        max-height: 20rem;
+        max-width: 62rex;
+        overflow: scroll;
+        overflow-x: hidden;
+        padding: 20px 10px 10px 10px;
+    }
+
+    .popup .popup-data input {
+        color: #4f5152;
+        width: 415px;
+        height: 41px;
+        border-radius: 3px;
+        border: 1px solid #e1e4e6;
+        margin-bottom: 15px;
+    }
+
+    .popup .popup-data lable {
+        color: #4f5152;
+    }
+
+    .popup .popup-data select {
+        color: #4f5152;
+        width: 415px;
+        height: 41px;
+        border-radius: 3px;
+        border-color: #e1e4e6;
+        border: 1px solid #e1e4e6;
+    }
+
+    .popup .popup-data .reminder input {
+        width: 250px;
+    }
+
+    .popup .popup-data .custom-control {
+        padding-left: 6.25rem;
+        margin-top: 5px;
+    }
+
+    .popup .popup-data .date-time .date div input {
+        width: 180px;
+        margin-right: 45px;
+    }
+
+    .popup-btn {
+        margin: 15px 15px;
+    }
+
+    .popup-btn .btn-save {
+        border: none;
+        background-color: #249eb1;
+        padding: 10px 17px 10px 17px;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .btn-save:hover {
+        background-color: #0eacc4;
+        color: white;
+    }
+
+    .popup-btn .btn-cnl {
+        border: 1px solid #b2b2b3;
+        background-color: #ffffff;
+        padding: 10px 17px 10px 17px;
+        border-radius: 10px;
+        color: #0009;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .btn-cnl:hover {
+        border: 1px solid #e1e4e6;
+        background-color: rgba(153, 153, 153, 0.986);
+        color: #ffff;
+        margin-left: 10px;
+    }
+
+    #reminder_block,
+    #contact_form {
+        display: none;
+    }
+
+    .view-content {
+        background-color: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .btn-cls {
+        border: none;
+        background: none;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 24px;
+        margin-left: 50px;
+        top: 5px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: 0.1s;
+        transition: 0.1s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: 0.1s;
+        transition: 0.1s;
+    }
+
+    input:checked+.slider {
+        background-color: #249eb1;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #249eb1;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(15px);
+        -ms-transform: translateX(15px);
+        transform: translateX(15px);
+    }
+
+    /* Rounded sliders */
+
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+    .btn-drop-down {
+        border: none;
+        background: none;
+        height: 50px;
+        width: 25px;
+    }
+
+    .red_color {
+        color: red;
+    }
+
+    .delete-btn {
+        position: relative;
+        z-index: 19;
+        float: right;
+        top: -44px;
+        right: 86px;
+        color: red;
+        cursor: pointer;
+    }
+
+    .choose-file {
+        position: absolute;
+    }
+
+    .notes-attach-modal-dialog {
+        top: 5vw;
+        right: auto;
+        left: 4vw;
+    }
+
+    .validation-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .description {
+        font-size: 12px;
+        color: black;
+        font-weight: 700;
+        vertical-align: top;
+        text-align: right;
+    }
+
+    .description-data {
+        color: #212b3d;
+        font-size: 13px;
+        padding-left: 50px;
+        line-height: 25px !important;
+        padding-top: 5px;
+    }
+
+    .side-heading {
+        font-size: 20px;
+        font-weight: 700;
+        padding-left: 30px;
+    }
+
+    .contact-name {
+        font-size: 14px;
+        font-weight: 700;
+    }
+</style>
+<div class="ld-view-pg"><!-- <div class="prf-del">
+            <div class="d-flex align-items-center">
+                <div class="prof-icon">
+                    <span class="profile-icon">C</span>
+                </div>
+                <div class="prf-nm">
+                    <h5>Christopher Maclead</h5>
+                    <label class="det-tex-colr">Company Name : </label>&nbsp; <label class="det-colr">Rangoni Of
+                        Florence </label>
+                </div>
+
+            </div>
+        </div> -->
+    <div class="lead-info">
+        <div class="ld-view">
+            <div class="ld-info">
+                <h4>Deal Information</h4>
+
+                <div class="in-table row d-flex">
+                    <table class="table-information">
+                        <tbody>
+                            <tr>
+                                <td class="det-tex-colr">Deal Owner</td>
+                                <td class="det-colr">[DealOwner]</td>
+                                <td>&nbsp;</td>
+                                <td class="det-tex-colr">Amount</td>
+                                <td class="det-colr">[Amount]</td>
+                            </tr>
+                            <tr>
+                                <td class="det-tex-colr">Deal Name</td>
+                                <td class="det-colr">[DealName]</td>
+                                <td>&nbsp;</td>
+                                <td class="det-tex-colr">Closing Date</td>
+                                <td class="det-colr">[closingdate]</td>
+                            </tr>
+                            <tr>
+                                <td class="det-tex-colr">Account Name</td>
+                                <td class="det-colr">[AccountName]</td>
+                                <td>&nbsp;</td>
+                                <td class="det-tex-colr">Stage</td>
+                                <td class="det-colr">[Stage]</td>
+                            </tr>
+                            <tr>
+                                <td class="det-tex-colr">Lead Source</td>
+                                <td class="det-colr">[LeadSource]</td>
+                                <td>&nbsp;</td>
+                                <td class="det-tex-colr">Probability</td>
+                                <td class="det-colr">[Probability]</td>
+                            </tr>
+                            <tr>
+                                <td class="det-tex-colr">Contact name</td>
+                                <td class="det-colr">[Contactname]</td>
+                                <td>&nbsp;</td>
+                                <td class="det-tex-colr">Next Step</td>
+                                <td class="det-colr">[nextstep]</td>
+                            </tr>
+                            <tr>
+                                <td class="description">Description</td>
+                                <td class="description-data">[Description]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="nt-att">
+                <div>
+                    <h4 class="side-heading">Notes &amp; Attachments</h4>
+                </div>
+
+                <div>
+                    <div class="ref d-flex ">
+                        <div><button class="new" id="getbtn">New</button></div>
+
+                        <div class="drop-filter"><select>
+                                <option>Recent First</option>
+                                <option>Recent Last</option>
+                            </select></div>
+                    </div>
+
+                    <div id="displaycontant">&nbsp;</div>
+                </div>
+            </div>
+
+            <!-- Deals log history -->
+
+            <div class="nt-att">
+                <div>
+                    <h4 class="side-heading">Stage History</h4>
+                </div>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Stage</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Closing Date</th>
+                            <th scope="col">Modified Time</th>
+                            <th scope="col">Modified By</th>
+                        </tr>
+                    </thead>
+                    <tbody id="deals_list">
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="nt-att">
+                <div>
+                    <h4 class="side-heading">Task</h4>
+                </div>
+
+                <div>
+                    <div class="ref d-flex">
+                        <div><button class="new" id="new" onclick="openModal()">New</button></div>
+
+                        <div class="drop-filter2 drop-filter"><select>
+                                <option>Recent First</option>
+                                <option>Recent Last</option>
+                            </select></div>
+                    </div>
+                    <!--    add gride view -->
+
+                    <div id="display">&nbsp;</div>
+                </div>
+            </div>
+
+            <div class="nt-att">
+                <div>
+                    <h4 class="side-heading">Meetings</h4>
+                </div>
+
+                <div class="ref d-flex">
+                    <div><button class="btn-icon"></button><button class="new">New</button></div>
+
+                    <div class="drop-filter"><select>
+                            <option>Recent First</option>
+                            <option>Recent Last</option>
+                        </select></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div><input id="deal_id" type="hidden" value="[dealid]" /></div>
+
+
+    <!-- popup for notes $ attachments --->
+    <!--    popup for notes $ attachments  -->
+    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal notes-attach-modal" id="exampleModal"
+    style="display: none; overflow: auto;" tabindex="-1">
+    <div class="modal-dialog notes-attach-modal-dialog">
+      <div class="modal-content notes-attach-modal-content">
+        <div class="modal-header notes-attach-modal-header">
+          <h5 class="modal-title notes-attach-modal-title" id="exampleModalLabel">Notes &amp; Attachments</h5>
+          <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+  
+        <div class="modal-body notes-attach-modal-body">
+          <div class="popup-note-att">
+            <div class="form-group">
+            <label>Add Title <span class="red_color"> *</span></label>
+            <input id="title" maxlength="25" onclick="showerrortitle()" style="width: 100%;" type="text"  class="form-control ">
+            <span class="validation-message" id="titleError">&nbsp;</span>
+            </div>
+            <div class="form-group">
+            <label>Add Notes <span class="red_color"> *</span></label>
+            <textarea cols="50" id="notes" maxlength="300" onclick="showerrornotes()" rows="4"  class="form-control "></textarea>
+            <span class="validation-message" id="notesError">&nbsp;</span>
+            </div>
+
+            <label>Add Attachment</label>
+  
+            <div class="custom-file"><input class="custom-file-input choose-file" id="customFile"
+                onchange="handleFileInputChange(event)" type="file" /> <label class="custom-file-label"
+                for="customFile">Choose file</label> <i aria-hidden="true" class="fa fa-times-circle delete-btn"
+                onclick="removeFile()"> &nbsp;</i></div>
+          </div>
+  
+          <div class="pt-4"><button class="btn-save" onclick="savedata()" type="submit">Save</button><button
+              class="btn-cnl" onclick="cancelForm()" type="button">Cancel</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!--Edit popup Screen-->
+    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal notes-attach-" id="EditModalPopup"
+    style="display: none; overflow: auto;" tabindex="-1">
+    <div class="modal-dialog notes-attach-modal-dialog">
+      <div class="modal-content notes-attach-modal-content">
+        <div class="modal-header notes-attach-modal-header">
+          <h5 class="modal-title notes-attach-modal-title" id="exampleModalLabel">Edit Notes &amp; Attachments</h5>
+          <button aria-label="Close" class="cls" data-dismiss="modal" onclick="hideModal()" type="button"><span
+              aria-hidden="true">&times;</span></button>
+        </div>
+  
+        <div class="modal-body notes-attach-modal-body">
+          <div class="popup-note-att">
+              <div class="form-group">
+              <label>Add Title<span class="red_color"> *</span></label>
+            <input id="title1" maxlength="25" style="width: 100%;" class="form-control "  type="text" />
+          </div>
+          <div class="form-group">
+            <label>Add Notes<span class="red_color"> *</span></label>
+            <textarea id="notes1" maxlength="300" style="height: 100px ;width: 100%;"  class="form-control " type="text" ></textarea>
+          </div>
+         
+            <label>Add Attachment</label>
+  
+            <div class="custom-file">
+              <input class="custom-file-input choose-file" id="customFile1"
+                onchange="saveEditfile()" type="file" /> 
+                <label class="custom-file-label" for="customFile1">Choose
+                file</label></div>
+  
+            <div class="pt-4"><button class="btn-save" onclick="save()" type="submit">Save</button><button class="btn-cnl"
+                onclick="cancelnotesedit()" type="button">Cancel</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <!--     Grid view for Notes & attachments --><!-- 
+        <div class="d-flex d-none  sample-card" >
+            <div class="d-flex justify-content-space-between align-items-center">
+                <div class="prof-icon"><span class="profile-icon">[logo]</span>
+                </div>
+    
+                <div class="detiles-data">
+                    <h5 onclick="view()">[title]</h5>
+    
+                    <ul>
+                        <li class="view-grid-data">[note]</li>
+                        <li><svg fill="none" height="12" viewbox="0 0 13 12" width="13" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.2503 1.1603C9.70334 -0.386766 7.18603 -0.386766 5.63877 1.1603L0.828696 5.97035C-0.276293 7.07546 -0.27622 8.87357 0.828841 9.97861C1.38142 10.5312 2.10702 10.8075 2.83292 10.8074C3.55862 10.8073 4.28461 10.5311 4.83709 9.97861L9.24619 5.56939C9.56741 5.24822 9.74434 4.82117 9.74439 4.36695C9.74439 3.9127 9.56753 3.48567 9.24626 3.1644C8.58316 2.50137 7.50423 2.50139 6.84127 3.16452L3.95788 6.04783C3.73652 6.26918 3.73652 6.6281 3.95784 6.84949C4.17918 7.0709 4.5381 7.07083 4.75949 6.84949L7.6429 3.96615C7.86393 3.74513 8.22351 3.74508 8.44456 3.96611C8.55161 4.07316 8.6106 4.21552 8.6106 4.36692C8.6106 4.51832 8.55164 4.66063 8.44456 4.76774L4.03544 9.17692C3.37236 9.83993 2.29353 9.84003 1.6305 9.17697C0.967465 8.51389 0.967416 7.43502 1.63038 6.77193L6.44043 1.96195C7.54559 0.856845 9.34369 0.856845 10.4487 1.96195C10.984 2.49725 11.2789 3.20901 11.2789 3.96606C11.2789 4.7231 10.984 5.43486 10.4487 5.97021L5.6387 10.7803C5.41736 11.0017 5.41736 11.3606 5.63875 11.582C5.74944 11.6927 5.89452 11.748 6.03957 11.748C6.18464 11.748 6.32971 11.6926 6.44041 11.582L11.2503 6.77189C11.9998 6.02245 12.4126 5.026 12.4126 3.96608C12.4126 2.90619 11.9998 1.90973 11.2503 1.1603Z"
+                                    fill="#7A828C"></path>
+                            </svg><a>&nbsp;&nbsp;&nbsp;&nbsp; [attachment]</a>&nbsp;</li>
+                    </ul>
+                </div>
+            </div>
+    
+    
+    
+            <div class="d-flex align-items-center items-detiles">
+                <div class="detiles-data">
+                    <ul>
+                        <li><label class="det-tex-colr ">Created by : </label> &nbsp; <label class="det-colr"
+                                style="text-transform: capitalize;">[Createby]</label></li>
+                        <li><label class="det-tex-colr">Created Time : </label> &nbsp; <label class="det-colr">[Date]
+                            </label></li>
+                    </ul>
+                </div>
+                
+                    <div class="dropdown drop-down">
+                        <a class="btn " data-toggle="dropdown">
+                            <button class="btn-drop-down"><img src="https://venus-scocu-assets.s3.amazonaws.com/1683700846020226"> </button></a>
+    
+                        <div class="dropdown-menu dp-menu" id="show_dropdown">
+                            <button class="dropdown-item" id="editnotes" onclick="editnotesattachments()">Edit</button>
+                            <button class="dropdown-item" id="deletenotes"
+                                onclick="deletenotesattachments()">Delete</button>
+    
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div> -->
+        
+        
+        <!-- Lead Screen popup  -->
+
+        <div class="lead-popup-bg" id="notedetailview" style="display:none;">
+            <div class="ld-pop d-flex justify-content-around">
+              <div class="ld-popup">
+                <div class="ld-req-popup">
+                  <div class="ld-req d-flex justify-content-between">
+                    <h5>Website Requirement</h5>
+                    <button class="btn-icon" onclick="closenotepopup()"><img
+                        src="https://venus-scocu-assets.s3.amazonaws.com/1683782622911750" /></button>
+                  </div>
+          
+                  <p class="ld-note">Design Website as per the brand guidelines, In the current world scenario, where websites
+                    have become an essential part of any business, you want yours to stand out. While every website is different
+                    in its way, what remains unchanged is designing, developing, and launching it successfully</p>
+                  <button class="btn-icon"><img src="https://venus-scocu-assets.s3.amazonaws.com/1683782642769603" /></button><a
+                    class="ld-txt">Brand Guidelines.pdf</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    <!--Delete notes attachments conformation popup-->
+
+    <div class="modal notes-attachments-delete" id="dltpopup" style="display:none" tabindex="-1">
+        <div class="modal-dialog notes-attachments-dialog">
+          <div class="modal-content notes-attachments-model-content">
+            <div class="modal-header notes-attachments-header">
+              <h5 class="modal-title notes-attachments-title">&nbsp;</h5>
+            </div>
+      
+            <div class="modal-body notes-attachments-body">
+              <p><b>Are you sur you want to delate this Notes &amp; Attachments</b></p>
+              <button class="btn-save" id="delb" onclick="deleteNotess()" type="button">Delete</button><button class="btn-cnl"
+                data-dismiss="modal" onclick="removedelpopup()" type="button">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- deals create pop up  -->
+
+    <div aria-hidden="true" aria-labelledby="exampleModalLabelDeal" class="modal" id="dealsModal"
+        style="display: none; overflow: auto" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabelDeal">Create a New Deal</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+
+                <div class="modal-body"><!-- <div class="popup-note-att">
+                    <label>Add Title</label><br />
+                    <input id="title" style="width: 100%;" type="text" /><br />
+                    <label>Add Notes</label><br />
+                    <input id="notes" style="height: 100px ;width: 100%;" type="text" /><br />
+                    <label>Add Attachment</label>
+
+                    <div class="input-group mb-3"><input aria-describedby="basic-addon2"
+                            aria-label="Recipient's username" class="form-control" id="file" type="file" />
+                        <div class="input-group-append"><span class="input-group-text" id="basic-addon2">Browser</span>
+                        </div>
+                    </div>
+                </div> -->
+                    <form>
+                        <div class="form-row">
+                            <div class="row deal-popup">
+                                <div class="col"><label>Deal owener</label> <select class="form-control"
+                                        id="deal_owener"></select> <label>Deal Name</label> <input class="form-control"
+                                        id="deal_name" placeholder="Deal Name" type="text" /> <label>Account
+                                        Name</label> <select class="form-control" id="AccountName_id"></select>
+                                    <label>Lead source</label> <select class="form-control"
+                                        id="Lead_source_id"></select></div>
+
+                                <div class="col">
+                                    <div class="col-6">
+                                        <div class="form-group text-left"><label for="">Amount </label><input
+                                                class="form-control" id="amount"
+                                                onkeypress="return /[0-9.]/i.test(event.key)" placeholder="Amount"
+                                                type="text" /></div>
+                                    </div>
+                                    <label>Closing Date</label> <input class="form-control" id="Closing Date"
+                                        placeholder="Closing Date" type="date" /> <label>Stage</label> <select
+                                        class="form-control" id="dealsType">
+                                        <!-- <option selected>Choose...</option> --> </select>
+                                    <!-- <input type="text" class="form-control" placeholder="Stage"> --> <label>Next
+                                        Step</label> <input class="form-control" id="nextstep" placeholder="Next step"
+                                        type="text" />
+                                </div>
+                            </div>
+
+                            <div class="form-group"><label>Description</label> <input class="form-control next-step"
+                                    id="Description" placeholder="Description" type="text" /></div>
+                        </div>
+                    </form>
+
+                    <div class="row all-btn"><button class="btn-save" id="btn-save-id"
+                            onclick="createdeals()">Save</button><button class="btn-save" id="btn-update-id"
+                            onclick="updatedeals()" style="display: none">Update</button><button class="btn-cnl"
+                            onclick="cancel()">Cancel</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end pop up--><!-- create task popup --><!-- <p><input id="Leads" type="hidden" value="[leadid]" /></p> -->
+
+    <div class="main-popup">
+        <div class="formPopup add-items-popup" id="popupAdditems">
+            <form class="formContainer">
+                <div class="discountPopup-header">
+                    <h2>Create Task</h2>
+                    <button aria-label="Close" class="cls" onclick="closeModal()" type="button"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+
+                <div class="popup">
+                    <div class="popup-data">
+                        <lable>Subject <span class="red_color"> *</span></lable><br />
+                        <input maxlength="25" name="subject" onclick="subjectErrorMsg()" style="width: 100%;"
+                            type="text" /><br />
+                        <span class="validation-message" id="subjectError">&nbsp;</span><br />
+                        <lable>Due Date <span class="red_color"> *</span></lable><br />
+                        <input id="due" name="due_date" onchange="maxdate()" style="cursor: pointer;"
+                            type="Date" /><br />
+                        <!-- <label>Add task to</label><br />
+  <select id="excuteTaskTo" name="add_task_to" onchange="excuteTask()"><option value="">Select</option><option value="Lead">Lead</option><option value="Contact">Contact</option> </select><br />
+  <br /> --> <!-- <label id="leadContactLabel">Lead</label><br />
+  <select id="leadContactData" name="contact_lead_id" onchange="excuteDeals()"><option>---</option> </select><br />
+  &nbsp;
+  <div id="contact_form"><label>Account/Deals</label><br />
+  <select id="excuteDeal" name="account_deal_type" onchange="excuteDeals()"><option value="">Select</option><option value="Accounts">Accounts</option><option value="Deals">Deals</option> </select><br />
+  &nbsp;
+  <div id="account_deal_id"><label id="accountDealLabel">Lead</label><br />
+  <select id="accountDealData" name="account_deal_id"><option value="">---</option> </select><br />
+  &nbsp;</div>
+  </div> --> <label>Priority <span class="red_color"> *</span></label><br />
+                        <select name="priority">
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select><br />
+                        <br />
+                        <label>Task owner <span class="red_color"> *</span></label><br />
+                        <select id="task_owner" name="task_owner">
+                            <option>Select Task Owner</option>
+                        </select><br />
+                        <br />
+                        <label>Status <span class="red_color"> *</span></label><br />
+                        <label><select name="status">
+                                <option>Open</option>
+                                <option>Close</option>
+                            </select> </label><br />
+                        <label>Reminder</label>
+
+                        <div class="reminder d-flex"><input class="remin" disabled="disabled" type="text" /><br />
+                            <!-- Default switch -->
+                            <div class="custom-control custom-switch"><label class="switch"><input
+                                        class="custom-control-input" id="reminderCheck" name="remainder_switch"
+                                        onclick="reminderCheckFunc()" type="checkbox" /><span
+                                        class="slider round">&nbsp;</span></label></div>
+                        </div>
+
+                        <div id="reminder_block">
+                            <div class="date-time d-flex">
+                                <div class="date d-flex">
+                                    <div><label>Date <span class="red_color"> *</span></label><br />
+                                        <input class="remin" id="remMax" name="remainder_date" style="cursor: pointer;"
+                                            type="date" />
+                                    </div>
+
+                                    <div><label>Time <span class="red_color"> *</span></label><br />
+                                        <input class="remin" name="remainder_time" style="cursor: pointer;"
+                                            type="time" />
+                                    </div>
+                                </div>
+                            </div>
+                            <label>Notify <span class="red_color"> *</span></label> <select id="notificationtypemeta"
+                                name="notify_type">
+                                <option value="">Select Notification Type</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discountPopup-footer" id="div_footer">
+                    <div class="fomr-group">
+                        <div class="popup-btn"><button class="btn-save" onclick="submitForm()"
+                                type="button">Save</button><button class="btn-cnl" onclick="closeModal()"
+                                type="button">Cancel</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- edit task form  --><!-- <input type="hidden" value="[deal_id]" id="Leads"/> -->
+
+    <div class="main-popup">
+        <div class="formPopup add-items-popup" id="Additems1" style="display: none">
+            <form class="formContainer">
+                <div class="discountPopup-header">
+                    <h2>Edit Task</h2>
+                    <button aria-label="Close" class="cls" type="button"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+
+                <div class="popup">
+                    <div class="popup-data">
+                        <lable>Subject</lable><br />
+                        <input name="input_id1" type="hidden" value="[ID]" /> <input name="subject" type="text" /><br />
+                        <lable>Due Date</lable><br />
+                        <input name="due_date1" type="Date" /><br />
+                        <!-- <label>Add task to</label><br />
+    <select id="excuteTaskTo_editl" name="add_task_to1" onchange="excuteTask()"><option value="">Select</option><option value="Lead">Lead</option><option value="Contact">Contact</option> </select><br />
+    <br /> --> <!-- <label id="leadContactLabel">Lead</label><br />
+    <select id="leadContactData_edit" name="contact_lead_id1" onchange="excuteDeals()"><option>---</option> </select><br />
+    &nbsp;
+    <div id="contact_form_edit"><label>Account/Deals</label><br />
+    <select id="excuteDeal_edit" name="account_deal_type1" onchange="excuteDeals()"><option value="">Select</option><option value="Accounts">Accounts</option><option value="Deals">Deals</option> </select><br />
+    &nbsp;
+    <div id="account_deal_id"><label id="accountDealLabel_edit">Lead</label><br />
+    <select id="accountDealData_edit" name="account_deal_id1"><option value="">---</option> </select><br />
+    &nbsp;</div>
+    </div> --> <label>Priority</label><br />
+                        <select name="priority1">
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select><br />
+                        <br />
+                        <label>Task owner</label><br />
+                        <select id="task_owner_edit" name="task_owner1">
+                            <option>Select Task Owner</option>
+                        </select><br />
+                        <br />
+                        <label>Status</label><br />
+                        <label><select name="status1">
+                                <option>Open</option>
+                                <option>Close</option>
+                            </select> </label><br />
+                        <label>Reminder</label>
+
+                        <div class="reminder d-flex"><input class="remin" type="text" /><br />
+                            <!-- Default switch -->
+                            <div class="custom-control custom-switch"><label class="switch"><input
+                                        class="custom-control-input" id="reminderCheck_edit" name="remainder_switch1"
+                                        onclick="reminderCheckFunc1()" type="checkbox" /><span
+                                        class="slider round">&nbsp;</span></label></div>
+                        </div>
+
+                        <div id="reminder_block_edit">
+                            <div class="date-time d-flex">
+                                <div class="date d-flex">
+                                    <div><label>Date</label><br />
+                                        <input class="remin" name="remainder_date1" type="date" />
+                                    </div>
+
+                                    <div><label>Time</label><br />
+                                        <input class="remin" name="remainder_time1" type="time" />
+                                    </div>
+                                </div>
+                            </div>
+                            <label>Notify</label> <select id="notificationtypemeta_edit" name="notify_type1">
+                                <option value="">Select Notification Type</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="discountPopup-footer" id="div_footer">
+                    <div class="fomr-group">
+                        <div class="popup-btn"><button class="btn-save" onclick="submitForm1()"
+                                type="button">Save</button><button class="btn-cnl" type="button">Cancel</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- view task  -->
+
+    <div class="main-popup">
+        <div class="formPopup add-items-popup" id="viewpopup">
+            <form class="formContainer">
+                <div class="discountPopup-header">
+                    <h2 id="subject_title">View Task</h2>
+                </div>
+
+                <div class="popup">
+                    <div class="popup-data">
+                        <lable>Subject</lable><br />
+                        <input disabled="disabled" name="input_id2" type="hidden" value="[ID]" /> <input
+                            disabled="disabled" name="subject2" type="text" /><br />
+                        <lable>Due Date</lable><br />
+                        <input disabled="disabled" name="due_date2" type="Date" /><br />
+                        <!-- <label>Add task to</label><br />
+    <select disabled="disabled" id="excuteTaskTo_view" name="add_task_to" onchange="excuteTask2()"><option value="">Select</option><option value="Lead">Lead</option><option value="Contact">Contact</option> </select><br />
+    <br /> --> <!-- <label id="leadContactLabel">Lead</label><br />
+    <select disabled="disabled" id="leadContactData_view" name="contact_lead_id" onchange="excuteDeals2()"><option>---</option> </select><br />
+    &nbsp;
+    <div id="contact_form_view"><label>Account/Deals</label><br />
+    <select disabled="disabled" id="excuteDeal_view" name="account_deal_type" onchange="excuteDeals2()"><option value="">Select</option><option value="Accounts">Accounts</option><option value="Deals">Deals</option> </select><br />
+    &nbsp;
+    <div id="account_deal_id"><label id="accountDealLabel">Lead</label><br />
+    <select disabled="disabled" id="accountDealData_view" name="account_deal_id"><option value="">---</option> </select><br />
+    &nbsp;</div>
+    </div> --> <label>Priority</label><br />
+                        <select disabled="disabled" name="priority2">
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select><br />
+                        <br />
+                        <label>Task owner</label><br />
+                        <select disabled="disabled" id="task_owner_view" name="task_owner2">
+                            <option>Select Task Owner</option>
+                        </select><br />
+                        <br />
+                        <label>Status</label><br />
+                        <label><select disabled="disabled" name="status2">
+                                <option>Open</option>
+                                <option>Close</option>
+                            </select> </label><br />
+                        <label>Reminder</label>
+
+                        <div class="reminder d-flex"><input class="remin" type="text" /><br />
+                            <!-- Default switch -->
+                            <div class="custom-control custom-switch"><label class="switch"><input
+                                        class="custom-control-input" disabled="disabled" id="reminderCheck_view"
+                                        name="remainder_switch2" onclick="reminderCheckFunc2()" type="checkbox" /> <span
+                                        class="slider round">&nbsp;</span> </label></div>
+                        </div>
+
+                        <div id="reminder_block">
+                            <div class="date-time d-flex">
+                                <div class="date d-flex">
+                                    <div><label>Date</label><br />
+                                        <input class="remin" disabled="disabled" name="remainder_date2" type="date" />
+                                    </div>
+
+                                    <div><label>Time</label><br />
+                                        <input class="remin" disabled="disabled" name="remainder_time2" type="time" />
+                                    </div>
+                                </div>
+                            </div>
+                            <label>Notify</label> <select disabled="disabled" id="notificationtypemeta_view"
+                                name="notify_type2">
+                                <option value="">Select Notification Type</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- delete popup -->
+
+    <div class="modal notes-attachments-delete" id="deletetask1" style="display:none" tabindex="-1">
+        <div class="modal-dialog notes-attachments-dialog">
+            <div class="modal-content notes-attachments-model-content">
+                <div class="modal-header notes-attachments-header">
+                    <h5 class="modal-title notes-attachments-title">&nbsp;</h5>
+                </div>
+
+                <div class="modal-body notes-attachments-body">
+                    <p><b>Are you sure you want to delete this Task?</b></p>
+                    <button class="btn-save" id="del" onclick="deletetaskfun()" type="button">Delete</button><button
+                        class="btn-cnl" data-dismiss="modal" onclick="" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //file uploading Notes & Attchments    var edit_id = null;
+  var btn = document.getElementById("getbtn")
+
+var modelpopup = document.getElementById("exampleModal")
+
+var closeButton = document.querySelector('.modal button.close');
+
+        var dealvalue = document.getElementById("deal_id").value;
+        var dlefile = document.querySelector(".custom-file .delete-btn");
+
+     btn.onclick = function () {
+    modelpopup.style.display = 'block';
+    dlefile.style.display = 'none';
+
+    document.getElementById('title').value = '';
+    document.getElementById('notes').value = '';
+    document.getElementById("titleError").style.display = 'none'
+    document.getElementById("notesError").style.display = 'none'
+    const getattachment = document.getElementById("customFile")
+    let name = getattachment.nextElementSibling;
+    name.innerText = 'Choose File';
+    getattachment.addEventListener('change', () => {
+      let fileName = getattachment.value.split('\\').pop();
+      name.innerText = fileName;
+      console.log('filename', fileName)
+    });
+
+
+  }
+
+  
+  function handleFileInputChange(event) {
+    const fileInput = event.target;
+    const deleteButton = fileInput.nextElementSibling.nextElementSibling;
+    if (fileInput.files.length > 0) {
+      deleteButton.style.display = 'inline-block'; // Show the delete button
+    } else {
+      deleteButton.style.display = 'none'; // Hide the delete button
+    }
+  }
+
+  function removeFile() {
+    const fileInput = document.getElementById('customFile');
+    fileInput.value = ''; // Clear the file input value
+    fileInput.nextElementSibling.innerHTML = 'Choose file'; // Reset the file label text
+    fileInput.nextElementSibling.nextElementSibling.style.display = 'none'; // Hide the delete button
+  }
+
+  function cancelForm() {
+    modelpopup.style.display = 'none';
+    document.getElementById('title').value = '';
+    document.getElementById('notes').value = '';
+    document.getElementById('customFile').value = '';
+
+
+  }
+
+  function showerrortitle() {
+    var sherror = document.getElementById("titleError")
+    sherror.innerHTML = 'maximum 25 characters allowed only';
+    sherror.style.display = 'block';
+
+  }
+
+
+  function showerrornotes() {
+
+var serrornotes = document.getElementById("notesError")
+serrornotes.innerHTML = 'maximum 300 characters allowed only'
+serrornotes.style.display = 'block'
+}
+
+
+
+closeButton.addEventListener('click', function () {
+    modelpopup.style.display = 'none';
+  })
+
+
+  function savedata() {
+    var getattachment = document.getElementById("customFile")
+
+
+    var file = getattachment.files[0];
+    let lib_auth = window["libAuth"];
+    const headers = {
+      access_key: lib_auth ? lib_auth.access_key : "29c07432-dbfd-414c-aad2-92473453be8c",
+      application_id: lib_auth ? lib_auth.app_id : "1681793773847206",
+    };
+
+    const base_url = lib_auth ? lib_auth.base_url : 'https://s01w01.scocu.net/api/v1/'
+    var formData = new FormData();
+
+    if (typeof file == "undefined") {
+      savedata1('', '')
+    } else {
+      formData.append("file", file);
+      fetch(base_url + "file", {
+        method: "POST",
+        headers: headers,
+        body: formData,
+      })
+        .then((resp) => resp.json())
+        .then((resp) => {
+          savedata1(resp.data.su_id, resp.data.file_name)
+          document.getElementById("customFile").value = '';
+          toastr.success("Successfully saved data ")
+
+
+
+
+        })
+
+    }
+
+
+  }
+
+
+    // post data into notes attachments form view section
+    var docName;
+
+  // post data into notes attachments form view section
+  function savedata1(document_id, document_name) {
+    docName = document_name;
+    let lib_auth = window['libAuth'];
+    let app_id = 1681793773847206
+    const headers = {
+      // "access_key": "ab903fec-adc6-4d63-8e54-a289ff276cfb",
+      //     "application_id": lib_auth ? lib_auth.app_id : '1673590599278960',
+      "access_key": lib_auth ? lib_auth.access_key : '29c07432-dbfd-414c-aad2-92473453be8c',
+      "application_id": lib_auth ? lib_auth.app_id : '1681793773847206',
+      "account_id": lib_auth ? lib_auth.account_id : '1669010286070940',
+      'Content-Type': 'application/json'
+    }
+
+    let gettitle = document.getElementById('title').value
+    let getnote = document.getElementById("notes").value
+    let getattachment = document.getElementById("customFile").value
+    if (gettitle.length === 0) {
+      alert('Title cannot be empty!');
+      return false;
+    }
+    if (getnote.length === 0) {
+      alert('Note cannot be empty!')
+      return false;
+    }
+
+
+    var body = {
+      "title": gettitle,
+      "notes": getnote,
+      "attachments": document_id,
+      "forId": dealvalue,    //here we passing lead id
+      "typeOfContent": 'Accounts',
+      "fileName": document_name
+
+
+    }
+    fetch("https://s01w01.scocu.net/api/v1/service_contract/1682596481891862", {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        modelpopup.style.display = "none"
+        getNews();
+        document.getElementById('title').value = '';
+        document.getElementById("notes").value = '';
+
+
+
+      })
+
+
+  }
+
+        var selectElement = document.querySelector(".drop-filter select");
+
+
+    // notes attachments grid view section
+    function getNews() {
+    let lib_auth = window['libAuth'];
+    let app_id = 1681793773847206
+    const headers = {
+      // "access_key": "ab903fec-adc6-4d63-8e54-a289ff276cfb",
+      //     "application_id": lib_auth ? lib_auth.app_id : '1673590599278960',
+      "access_key": lib_auth ? lib_auth.access_key : '29c07432-dbfd-414c-aad2-92473453be8c',
+      "application_id": lib_auth ? lib_auth.app_id : '1681793773847206',
+      "account_id": lib_auth ? lib_auth.account_id : '1669010286070940',
+      'Content-Type': 'application/json'
+    }
+    var body = {
+      "typeofcontent": "Deals",
+      "forid": dealvalue          // here we pass lead id
+
+    }
+    fetch("https://s01w01.scocu.net/api/v1/views/1682660220138802/execute", {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        var ids = data.data.map((item) => item.id)
+        console.log(ids)
+
+        var reversedData = data.data.slice().reverse();
+
+        var newData = data.data;
+
+        selectElement.addEventListener('change', () => {
+          if (selectElement.value === 'Recent Last') {
+            newData = reversedData;
+
+          } else {
+            newData = data.data;
+          }
+          displayData(newData);
+        });
+        if (selectElement.value === 'Recent First') {
+          displayData(newData);
+
+        }
+
+
+
+
+
+
+      })
+
+
+  }
+  getNews()
+
+function displayData(data) {
+
+  var datadisplay = ``;
+  data.forEach((element) => {
+    var filenames = '';
+    if (element.filename === undefined || element.filename === null || element.filename == '1') {
+      datadisplay += `<div class="d-flex  sample-card">
+<div class="d-flex justify-content-space-between align-items-center">
+  <div class="prof-icon"><span class="profile-icon">${element.notecretedby[0]}</span>
+  </div>
+
+  <div class="detiles-data">
+    <h5 onclick="view(${element.id})">${element.title}</h5>
+
+    <ul>
+      <li class="view-grid-data">${element.notes}</li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="d-flex align-items-center items-detiles">
+  <div class="detiles-data">
+    <ul>
+      <li><label class="det-tex-colr ">Created by : </label> &nbsp; <label class="det-colr"
+          style="text-transform: capitalize;">${element.notecretedby}</label></li>
+      <li><label class="det-tex-colr">Created Time : </label> &nbsp; <label class="det-colr">${UTCDateString(element.s_created_at)} </label></li>
+    </ul>
+  </div>
+  
+    <div class="dropdown drop-down">
+      <a class="btn " data-toggle="dropdown">
+       <button class="btn-drop-down"><img src="https://venus-scocu-assets.s3.amazonaws.com/1683700846020226">  </button></a>
+    
+      <div class="dropdown-menu dp-menu" id="show_dropdown">
+        <button class="dropdown-item" onclick="editnotesattachments(${element.id})">Edit</button>
+        <button class="dropdown-item" onclick="deletenotesattachments(${element.id})">Delete</button>
+        
+    </div>
+  </div>
+</div>
+
+</div>`
+
+
+
+    }
+
+
+    else {
+      datadisplay += `<div class="d-flex  sample-card">
+<div class="d-flex justify-content-space-between align-items-center">
+  <div class="prof-icon"><span class="profile-icon">${element.notecretedby[0]}</span>
+  </div>
+
+  <div class="detiles-data">
+    <h5 onclick="view(${element.id})">${element.title}</h5>
+
+    <ul>
+      <li class="view-grid-data">${element.notes}</li>
+      <li><svg fill="none" height="12" viewbox="0 0 13 12" width="13" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11.2503 1.1603C9.70334 -0.386766 7.18603 -0.386766 5.63877 1.1603L0.828696 5.97035C-0.276293 7.07546 -0.27622 8.87357 0.828841 9.97861C1.38142 10.5312 2.10702 10.8075 2.83292 10.8074C3.55862 10.8073 4.28461 10.5311 4.83709 9.97861L9.24619 5.56939C9.56741 5.24822 9.74434 4.82117 9.74439 4.36695C9.74439 3.9127 9.56753 3.48567 9.24626 3.1644C8.58316 2.50137 7.50423 2.50139 6.84127 3.16452L3.95788 6.04783C3.73652 6.26918 3.73652 6.6281 3.95784 6.84949C4.17918 7.0709 4.5381 7.07083 4.75949 6.84949L7.6429 3.96615C7.86393 3.74513 8.22351 3.74508 8.44456 3.96611C8.55161 4.07316 8.6106 4.21552 8.6106 4.36692C8.6106 4.51832 8.55164 4.66063 8.44456 4.76774L4.03544 9.17692C3.37236 9.83993 2.29353 9.84003 1.6305 9.17697C0.967465 8.51389 0.967416 7.43502 1.63038 6.77193L6.44043 1.96195C7.54559 0.856845 9.34369 0.856845 10.4487 1.96195C10.984 2.49725 11.2789 3.20901 11.2789 3.96606C11.2789 4.7231 10.984 5.43486 10.4487 5.97021L5.6387 10.7803C5.41736 11.0017 5.41736 11.3606 5.63875 11.582C5.74944 11.6927 5.89452 11.748 6.03957 11.748C6.18464 11.748 6.32971 11.6926 6.44041 11.582L11.2503 6.77189C11.9998 6.02245 12.4126 5.026 12.4126 3.96608C12.4126 2.90619 11.9998 1.90973 11.2503 1.1603Z"
+            fill="#7A828C"></path>
+        </svg><a href="javascript:void(0)"onclick="fileopen('${element.attachments}')">&nbsp;&nbsp;&nbsp;&nbsp; ${element.filename}</a>&nbsp;</li>
+   
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="d-flex align-items-center items-detiles">
+  <div class="detiles-data">
+    <ul>
+      <li><label class="det-tex-colr ">Created by : </label> &nbsp; <label class="det-colr"
+          style="text-transform: capitalize;">${element.notecretedby}</label></li>
+      <li><label class="det-tex-colr">Created Time : </label> &nbsp; <label class="det-colr">${UTCDateString(element.s_created_at)} </label></li>
+    </ul>
+  </div>
+   <div class="dropdown drop-down">
+      <a class="btn " data-toggle="dropdown">
+       <button class="btn-drop-down"><img src="https://venus-scocu-assets.s3.amazonaws.com/1683700846020226">  </button></a>
+    
+      <div class="dropdown-menu dp-menu" id="show_dropdown">
+        <button class="dropdown-item" onclick="editnotesattachments(${element.id})">Edit</button>
+        <button class="dropdown-item" onclick="deletenotesattachments(${element.id})">Delete</button>
+        
+    </div>
+  </div>
+</div>
+
+</div>`
+
+    }
+
+
+  });
+  $("#displaycontant").html(datadisplay)
+
+
+}
+
+var editform = document.getElementById("EditModalPopup");
+
+function cancelnotesedit() {
+  editform.style.display = "none"
+}
+function hideModal() {
+  editform.style.display = "none"
+}
+
+
+  // get notes attachments in  editform  view section
+
+  function editnotesattachments(id) {
+  edit_id = id
+  let lib_auth = window['libAuth'];
+  let app_id = 1681793773847206;
+  const headers = {
+    "access_key": lib_auth ? lib_auth.access_key : '29c07432-dbfd-414c-aad2-92473453be8c',
+    "application_id": lib_auth ? lib_auth.app_id : '1681793773847206',
+    "account_id": lib_auth ? lib_auth.account_id : '1669010286070940',
+    'Content-Type': 'application/json'
+  };
+  var body = {
+    "id": id       //notes&Attachments table id
+  };
+  fetch("https://s01w01.scocu.net/api/v1/views/1682938014133763/execute", {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      var editdata = ``;
+      data.data.forEach(function (e) {
+        editdata += `<div class="modal-dialog notes-attach-modal-dialog">
+        <div class="modal-content notes-attach-modal-content">
+            <div class="modal-header notes-attach-modal-header">
+                <h5 class="modal-title notes-attach-modal-title" id="exampleModalLabel">Edit Notes & Attachments</h5>
+                <button type="button" class="cls" data-dismiss="modal" aria-label="Close" onclick="hideModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body notes-attach-modal-body">
+                <div class="popup-note-att">
+                    <label>Add Title <span class="red_color"> *</span></label> 
+                    <input type="text" id="title1" style="width: 100%;" value="${e.title}"> 
+                    <label>Add Notes <span class="red_color"> *</span></label> 
+                    <input type="text" id="notes1" style="height: 100px ;width: 100%;" value="${e.notes}"> 
+                    <label>Add Attachment</label> 
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input choose-file" id="customFile1" onchange="saveEditfile()">
+                        <input type="hidden" id="editattachmentid" value="${e.attachments}">
+                        <input type="hidden" id="editattachmentfilename" value="${e.filename}"> 
+                        <label class="custom-file-label" id='changefilename' for="customFile1">${(e.filename && e.filename != '1') ? e.filename : 'Choose file'}</label>
+                        ${(e.filename && e.filename != '1') ? '<i class="fa fa-times-circle delete-btn" aria-hidden="true" onclick="removeEditfile()" id="clsicon"></i>' : '<i class="fa fa-times-circle delete-btn" aria-hidden="true" onclick="removeEditfile()" id="clsicon" style="display:none;"></i>'}
+                        </div>
+              
+                </div>
+                <div class="pt-4">
+                    <button type="submit" onclick="save()" class="btn-save">Save</button>
+                    <button type="button" onclick="cancelnotesedit()" class="btn-cnl">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>`;
+      });
+      $("#EditModalPopup").html(editdata)
+      editform.style.display = 'block';
+
+    });
+
+}
+
+function saveEditfile() {
+    var getattachment = document.getElementById("customFile1")
+    let lib_auth = window["libAuth"];
+    const headers = {
+      access_key: lib_auth ? lib_auth.access_key : "65675493-8b53-4001-8a7c-6dd686a29bde",
+      application_id: lib_auth ? lib_auth.app_id : "1681793773847206",
+    };
+    if (getattachment.files.length > 0) {
+      var file = getattachment.files[0];
+
+      const base_url = lib_auth ? lib_auth.base_url : 'https://s01w01.scocu.net/api/v1/'
+      var formData = new FormData();
+
+      formData.append("file", file);
+      fetch(base_url + "file", {
+        method: "POST",
+        headers: headers,
+        body: formData,
+      })
+        .then((resp) => resp.json())
+        .then((resp) => {
+
+          document.getElementById("changefilename").innerHTML = resp.data.file_name;
+          const fileInput = document.getElementById("customFile1");
+          const deleteButton = document.getElementById("clsicon");
+          deleteButton.style.display = 'inline-block';
+          document.getElementById("editattachmentid").value = resp.data.su_id;
+          document.getElementById("editattachmentfilename").value = resp.data.file_name;
+
+
+
+
+        })
+
+    }
+
+
+
+  }
+
+
+
+
+  function removeEditfile() {
+    const fileInput = document.getElementById('customFile1');
+    const label = document.getElementById('changefilename');
+    const deleteButton = label.nextElementSibling;
+
+    fileInput.value = ''; // Clear the file input value
+    label.innerText = 'Choose file'; // Reset the label text
+    deleteButton.style.display = 'none'; // Hide the delete button
+    document.getElementById("editattachmentid").value = '1';
+    document.getElementById("editattachmentfilename").value = '1';
+  }
+
+  function save() {
+    let lib_auth = window['libAuth'];
+    let app_id = 1681793773847206;
+
+    let edttitle = document.getElementById("title1").value
+    let edtnotes = document.getElementById("notes1").value
+
+    let edtattachment_id = document.getElementById("editattachmentid").value
+    let editattachment_name = document.getElementById("editattachmentfilename").value
+    const headers = {
+      "access_key": lib_auth ? lib_auth.access_key : '29c07432-dbfd-414c-aad2-92473453be8c',
+      "application_id": lib_auth ? lib_auth.app_id : '1681793773847206',
+      "account_id": lib_auth ? lib_auth.account_id : '1669010286070940',
+      'Content-Type': 'application/json'
+    };
+    var body = {
+      "id": edit_id,
+      "title": edttitle,
+      "notes": edtnotes,
+      "attachments": edtattachment_id,
+      "filename": editattachment_name
+
+      //notes & Attchments table id
+    };
+    fetch("https://s01w01.scocu.net/api/v1/service_contract/1682937382761362", {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("successfully data updated")
+
+        edit_id = null
+        getNews()
+        editform.style.display = "none"
+
+
+      })
+      .catch((error) => {
+        alert("error while updating data")
+      })
+  }
+
+        // delete notes Attchments
+
+        function deletenotesattachments(id) {
+    delid = id
+    var deletemodalpopup = document.querySelector('#dltpopup');
+    deletemodalpopup.style.display = 'block';
+    var deleteButtonpopup = document.getElementById('delb');
+    deleteButtonpopup.setAttribute('data-id', delid)
+
+
+  }
+  function deleteNotess() {
+    var deleteButtonpopup = document.getElementById('delb');
+    var delid = deleteButtonpopup.getAttribute('data-id')
+    let lib_auth = window['libAuth'];
+    let app_id = 1681793773847206;
+    const headers = {
+      "access_key": lib_auth ? lib_auth.access_key : 'ef66c8bf-a2a1-4efe-b920-92d902c6b190',
+      "application_id": lib_auth ? lib_auth.app_id : '1681793773847206',
+      "account_id": lib_auth ? lib_auth.account_id : '1669010286070940',
+      'Content-Type': 'application/json'
+    };
+    var body = {
+      "id": delid // notes & Attachments table id 
+    };
+    fetch("https://s01w01.scocu.net/api/v1/service_contract/1683004840634595", {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("dltpopup").style.display = 'none'
+        // toastr.success("successfully record deleted")
+        getNews();
+
+      })
+      .catch((error) => {
+        alert("error while deleting record")
+      })
+
+  }
+
+
+
+
+  function removedelpopup() {
+
+document.getElementById("dltpopup").style.display = 'none'
+
+}
+
+        function UTCDateString(UTCDateString) {
+            const utcDate = new Date(UTCDateString);
+            const myLocalDate = new Date(
+                Date.UTC(
+                    utcDate.getFullYear(),
+                    utcDate.getMonth(),
+                    utcDate.getDate(),
+                    utcDate.getHours(),
+                    utcDate.getMinutes()
+                )
+            );
+
+            var months = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+            ];
+            var month = months[myLocalDate.getMonth()];
+
+            var day = myLocalDate.getDate();
+
+            var year = myLocalDate.getFullYear();
+            var hr = myLocalDate.getHours();
+            var min = myLocalDate.getMinutes();
+            if (min < 10) {
+                min = "0" + min;
+            }
+            var ampm = "AM";
+            if (hr > 12) {
+                hr -= 12;
+                ampm = "PM";
+            }
+            var time = myLocalDate.getTime();
+            var formattedDateTime = `${month} ${day}, ${year} ${hr}:${min} ${ampm}`;
+
+            return formattedDateTime;
+        }
+
+      
+  function view(id) {
+    var getnotedetailpopup = document.getElementById("notedetailview")
+    let lib_auth = window['libAuth'];
+    let app_id = 1681793773847206;
+    const headers = {
+      "access_key": lib_auth ? lib_auth.access_key : '29c07432-dbfd-414c-aad2-92473453be8c',
+      "application_id": lib_auth ? lib_auth.app_id : '1681793773847206',
+      "account_id": lib_auth ? lib_auth.account_id : '1669010286070940',
+      'Content-Type': 'application/json'
+    };
+    var body = {
+      "id": id         // notes & Attachments table id 
+    };
+    fetch("https://s01w01.scocu.net/api/v1/views/1682938014133763/execute", {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        var detailnotes = ``
+        var popupnote = '';
+
+        data.data.forEach(function (ele) {
+          if (ele.filename === undefined || ele.filename === null) {
+            detailnotes += `
+    <div class="ld-pop d-flex justify-content-around">
+      <div class="ld-popup">
+        <div class="ld-req-popup">
+          <div class="ld-req d-flex justify-content-between">
+            <h5>${ele.title}</h5>
+            <button class="btn-icon" onclick="closenotepopup()"><img src="https://venus-scocu-assets.s3.amazonaws.com/1683782622911750">
+            </button>
+          </div>
+  
+          <p class="ld-note">${ele.notes}
+          </p>
+
+        </div>
+  
+      </div>
+  
+    </div>`
+          }
+          else {
+            detailnotes += `
+    <div class="ld-pop d-flex justify-content-around">
+      <div class="ld-popup">
+        <div class="ld-req-popup">
+          <div class="ld-req d-flex justify-content-between">
+            <h5>${ele.title}</h5>
+            <button class="btn-icon" onclick="closenotepopup()"><img src="https://venus-scocu-assets.s3.amazonaws.com/1683782622911750">
+            </button>
+          </div>
+  
+          <p class="ld-note">${ele.notes}
+          </p>
+          <button class="btn-icon"><img src="https://venus-scocu-assets.s3.amazonaws.com/1683782642769603">
+  
+          </button>
+          <a class="ld-txt" href="javascript:void(0)" onclick="fileopen('${ele.attachments}')">${ele.filename}</a>
+
+  
+        </div>
+  
+      </div>
+  
+    </div>`
+
+          }
+
+        })
+        $("#notedetailview").html(detailnotes)
+        getnotedetailpopup.style.display = 'block'
+
+
+
+      })
+
+  }
+
+  var getpop = document.getElementById("notedetailview")
+  function closenotepopup() {
+    getpop.style.display = 'none'
+
+
+  }
+
+
+  function fileopen(su_id) {
+    let lib_auth = window["libAuth"];
+    const headers = {
+      access_key: lib_auth ? lib_auth.access_key : "29c07432-dbfd-414c-aad2-92473453be8c",
+      application_id: lib_auth ? lib_auth.app_id : "1681793773847206",
+    };
+    const base_url = lib_auth ? lib_auth.base_url : 'https://s01w01.scocu.net/api/v1/'
+    fetch(base_url + "file/" + su_id, {
+      method: "GET",
+      headers: headers
+    })
+      .then((resp) => resp.json())
+      .then((resp) => {
+
+        var file_url = resp.data;
+        console.log(file_url)
+        window.open(file_url, "_blank");
+      })
+  }
+
+        //   Deals log history
+
+        function getcontactbyid() {
+            console.log("delas", deal_id);
+            let deals_list = document.getElementById("deals_list");
+            deals_list.innerHTML = "";
+
+            let lib_auth = window["libAuth"];
+            const headers = {
+                access_key: lib_auth
+                    ? lib_auth.access_key
+                    : "c3c5d304-d372-46e4-93fa-82f4119ccc46",
+
+                application_id: lib_auth ? lib_auth.app_id : "1681793773847206",
+
+                "Content-Type": "application/json",
+            };
+
+            let body = { id: document.getElementById("deal_id").value };
+            fetch("https://s01w01.scocu.net/api/v1/views/1683010779276644/execute", {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(body),
+            })
+                .then((response) => response.json())
+                //Then with the data from the response in JSON...
+                .then((data) => {
+                    data.data.forEach((e, index) => {
+                        console.log(e);
+                        deals_list.innerHTML += `<tr>
+                   <td>${e.value}</td>
+                    <td>${e.amount}</td>
+                    <td>${UTCDateString(e.closingdate)}</td>
+                    <td>${UTCDateString(e.s_created_at)}</td>
+                    <td>${e.username}</td>
+                   
+                    
+                   
+                    </tr>`;
+                    });
+                    // data.data.forEach(function (c) {
+                });
+
+            //Then with the error genereted...
+        }
+        getcontactbyid();
+
+        function UTCDateString(UTCDateString) {
+            const utcDate = new Date(UTCDateString);
+            const myLocalDate = new Date(
+                Date.UTC(
+                    utcDate.getFullYear(),
+                    utcDate.getMonth(),
+                    utcDate.getDate(),
+                    utcDate.getHours(),
+                    utcDate.getMinutes()
+                )
+            );
+
+            var months = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+            ];
+            var month = months[myLocalDate.getMonth()];
+
+            var day = myLocalDate.getDate();
+
+            var year = myLocalDate.getFullYear();
+            var hr = myLocalDate.getHours();
+            var min = myLocalDate.getMinutes();
+            if (min < 10) {
+                min = "0" + min;
+            }
+            var ampm = "AM";
+            if (hr > 12) {
+                hr -= 12;
+                ampm = "PM";
+            }
+            var time = myLocalDate.getTime();
+            var formattedDateTime = `${month} ${day}, ${year} ${hr}:${min} ${ampm}`;
+
+            return formattedDateTime;
+        }
+
+        // script for create task
+
+        // model pop up script for task
+
+        function openModal() {
+            reset();
+
+            var modal = document.getElementById("popupAdditems");
+            modal.style.display = "block";
+            var ee = document.getElementById("subjectError")
+            ee.style.display = "none";
+
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("popupAdditems");
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            var modal = document.getElementById("popupAdditems");
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
+        function closeModal1() {
+            var modal1 = document.getElementById("Additems1");
+            modal1.style.display = "none";
+        }
+        function closeModalview() {
+            event.preventDefault();
+            document.getElementById("viewpopup").style.display = "none";
+            // cls.style.display = "none";
+
+        }
+
+        function newCloseModal() {
+            document.getElementById("viewpopup").style.display = "none";
+        }
+        // access key and application id
+        if (typeof lib_auth === "undefined" || lib_auth === null) {
+            var lib_auth = window["libAuth"];
+            var headers = {
+                access_key: lib_auth ? lib_auth.access_key : "c3c5d304-d372-46e4-93fa-82f4119ccc46",
+                application_id: lib_auth ? lib_auth.app_id : "1681793773847206",
+                "Content-Type": "application/json",
+            };
+
+        }
+        var today_date = new Date().toISOString().slice(0, 10);
+        document.getElementsByName("due_date")[0].setAttribute("min", today_date)
+        document.getElementsByName("remainder_date")[0].setAttribute("min", today_date);
+
+        var contact_accounts = {};
+
+        function callNotificationMetaData() {
+            let body = {};
+            var notificationtypemeta =
+                '<option value=""> Select Notification Type </option>';
+            fetch("https://s01w01.scocu.net/api/v1/views/1682663663986278/execute", {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(body),
+            })
+                .then((response) => response.json())
+                //Then with the data from the response in JSON...
+                .then((data) => {
+                    data.data.forEach(function (c) {
+                        notificationtypemeta +=
+                            '<option value="' + c.id + '"> ' + c.value + " </option>";
+                    });
+                    document.getElementById("notificationtypemeta").innerHTML =
+                        notificationtypemeta;
+                })
+                //Then with the error genereted...
+                .catch((error) => {
+                    // toastr.error("Error:", error);
+                });
+
+            // fetch user data
+            var selectOwner = '<option value=""> Select Task Owner </option>';
+            var selectedOwner = lib_auth.current_user_info.name ?? "";
+            fetch("https://s01w01.scocu.net/api/v1/service_contract/1682492192777736", {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(body),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    var data = data.data.data;
+                    data.forEach((c) => {
+                        if (selectedOwner === c.username) {
+                            selectOwner +=
+                                '<option value="' +
+                                c.username +
+                                '" selected> ' +
+                                c.username +
+                                " </option>";
+                        } else {
+                            selectOwner +=
+                                '<option value="' +
+                                c.username +
+                                '"> ' +
+                                c.username +
+                                " </option>";
+                        }
+                    });
+
+                    document.getElementById("task_owner").innerHTML = selectOwner;
+                })
+                .catch((error) => {
+                    // toastr.error("Error:", error);
+                });
+        }
+        function excuteTask() {
+            var val = document.getElementById("excuteTaskTo").value;
+            let body = {};
+            document.getElementById("leadContactLabel").innerHTML = val;
+            var leadContactData = '<option value=""> Select ' + val + " </option>";
+            if (val === "Lead") {
+                fetch("https://s01w01.scocu.net/api/v1/views/1683011044490677/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        data.data.forEach(function (c) {
+                            leadContactData +=
+                                '<option value="' +
+                                c.id +
+                                '"> ' +
+                                c.firstname +
+                                c.lastname +
+                                " </option>";
+                        });
+                        document.getElementById("leadContactData").innerHTML =
+                            leadContactData;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error("Error:", error);
+                    });
+                document.getElementById("contact_form").style.display = "none";
+            } else if (val === "Contact") {
+                fetch("https://s01w01.scocu.net/api/v1/views/1683012443326971/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        contact_accounts = {};
+                        data.data.forEach(function (c) {
+                            leadContactData +=
+                                '<option value="' +
+                                c.id +
+                                '"> ' +
+                                c.firstname +
+                                c.lastname +
+                                " </option>";
+                            contact_accounts[c.id] = c.accountid;
+                        });
+                        document.getElementById("leadContactData").innerHTML =
+                            leadContactData;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error("Error:", error);
+                    });
+                document.getElementById("contact_form").style.display = "block";
+            } else {
+                // toastr.error("Add task to feild is mandatory");
+                document.getElementById("contact_form").style.display = "none";
+            }
+        }
+        function excuteDeals() {
+            var val = document.getElementById("excuteDeal").value;
+            var contact_id = document.getElementById("leadContactData").value;
+            let body = { contact_id: contact_id };
+            document.getElementById("accountDealLabel").innerHTML = val;
+            var accountDealData = '<option value=""> Select ' + val + " </option>";
+            if (val === "Deals") {
+                fetch("https://s01w01.scocu.net/api/v1/views/1683017986332388/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        data.data.forEach(function (c) {
+                            accountDealData +=
+                                '<option value="' +
+                                c.id +
+                                '"> ' +
+                                c.firstname +
+                                c.lastname +
+                                " </option>";
+                        });
+                        document.getElementById("accountDealData").innerHTML =
+                            accountDealData;
+
+                        document.getElementById("accountDealData").disabled = false;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error("Error:", error);
+                    });
+            } else if (val === "Accounts") {
+                fetch("https://s01w01.scocu.net/api/v1/views/1683017864292343/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        const contact_id =
+                            document.getElementsByName("contact_lead_id")[0].value;
+                        data.data.forEach(function (c) {
+                            if (contact_accounts[contact_id] === c.id) {
+                                accountDealData +=
+                                    '<option value="' +
+                                    c.id +
+                                    '" selected> ' +
+                                    c.accountname +
+                                    " </option>";
+                            } else {
+                                accountDealData +=
+                                    '<option value="' + c.id + '"> ' + c.accountname + " </option>";
+                            }
+                        });
+                        document.getElementById("accountDealData").innerHTML =
+                            accountDealData;
+                        document.getElementById("accountDealData").disabled = true;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error("Error:", error);
+                    });
+            } else {
+                // toastr.error("Add Deals/Account field is mandatory");
+            }
+        }
+        function reminderCheckFunc() {
+            if (document.getElementById("reminderCheck").checked) {
+                document.getElementById("reminder_block").style.display = "block";
+            } else {
+                document.getElementById("reminder_block").style.display = "none";
+            }
+        }
+
+        function maxdate() {
+            var max = document.getElementsByName("due_date")[0]
+            var today = max.value;
+
+            document.getElementById("remMax").value = "";
+            document.getElementById("remMax").setAttribute("max", today);
+        }
+
+        function removedelpopup() {
+
+            document.getElementById("deletetask1").style.display = 'none'
+
+        }
+
+
+
+        // error validatiom msg
+        function subjectErrorMsg() {
+            var errormsg = document.getElementById("subjectError")
+            var showmsg = errormsg.innerHTML = "maximum 25 characters allowed only";
+            errormsg.style.display = "block"
+        }
+        function reset() {
+            document.getElementsByName("subject")[0].value = "";
+            document.getElementsByName("due_date")[0].value = "";
+            document.getElementsByName("priority")[0].value = "";
+            document.getElementsByName("status")[0].value = "";
+            document.getElementsByName("remainder_date")[0].value = "";
+            document.getElementsByName("remainder_time")[0].value = "";
+            document.getElementsByName("notify_type")[0].value = "";
+            document.getElementById("reminderCheck").checked = false
+            reminderCheckFunc();
+        }
+        function submitForm() {
+            var subject = document.getElementsByName("subject")[0].value ?? "";
+            var DueDate = document.getElementsByName("due_date")[0].value ?? "";
+            //var AddTaskTo = (document.getElementsByName("add_task_to")[0].value) ?? '';
+            //var contactLead_id = (document.getElementsByName("contact_lead_id")[0].value) ?? '';
+            // var AccountDealType = (document.getElementsByName("account_deal_type")[0].value) ?? '';
+            // var AccountDealID = (document.getElementsByName("account_deal_id")[0].value) ?? '';
+            var lead_id = document.getElementById("deal_id").value;
+            var prority = document.getElementsByName("priority")[0].value ?? "";
+            var TaskOwner = document.getElementsByName("task_owner")[0].value ?? "";
+            var status = document.getElementsByName("status")[0].value ?? "";
+            var remainder_switch =
+                document.getElementsByName("remainder_switch")[0].checked ?? "";
+            var remainderDate =
+                document.getElementsByName("remainder_date")[0].value ?? "";
+            var remainderTime =
+                document.getElementsByName("remainder_time")[0].value ?? "";
+            var notifyType = document.getElementsByName("notify_type")[0].value ?? "";
+            var is_valid = true;
+            if (subject == "") {
+                toastr.error("subject field is required");
+                is_valid = false;
+            } else if (DueDate == "") {
+                toastr.error("Due Date field is required");
+                is_valid = false;
+            } else if (prority == "") {
+                toastr.error("Priority field is required");
+                is_valid = false;
+            } else if (TaskOwner == "") {
+                toastr.error("Task Owner field is required");
+                is_valid = false;
+            } else if (status == "") {
+                toastr.error("Status field is required");
+                is_valid = false;
+            }
+            // else if (AddTaskTo == "Contact") {
+            //     if (AccountDealType == "") {
+            //         toastr.error("AccountDealType field is required")
+            //         is_valid = false;
+            //     } else if (AccountDealID == "") {
+            //         toastr.error("AccountDealID field is required")
+            //         is_valid = false;
+            //     }
+            // }
+            else if (document.getElementById("reminderCheck").checked) {
+                if (remainderDate == "") {
+                    toastr.error("Reminder Date field is required");
+                    is_valid = false;
+                } else if (remainderTime == "") {
+                    toastr.error("Reminder Time field is required");
+                    is_valid = false;
+                } else if (notifyType == "") {
+                    toastr.error("Notify Type field is required");
+                    is_valid = false;
+                }
+            }
+            if (is_valid === true) {
+                var body = {
+                    "subject": subject,
+                    "Due Date": DueDate,
+                    "Add Task To": "Deals",
+                    "typeofid": lead_id,
+                    "contact/lead_id": lead_id,
+                    // "Account/Deal Type": AccountDealType,
+                    // "Account/Deal ID": AccountDealID,
+                    "prority": prority,
+                    "Task Owner": TaskOwner,
+                    "status": status,
+                    "remainder_switch": remainder_switch == true ? 1 : 0,
+                    "remainder date": remainderDate,
+                    "remainder time": remainderTime ? time_format(remainderTime) : "",
+                    "notify type": notifyType,
+                };
+                fetch(
+                    "https://s01w01.scocu.net/api/v1/service_contract/1682664922086299",
+                    {
+                        method: "POST",
+                        headers: headers,
+                        body: JSON.stringify(body),
+                    }
+                )
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data);
+                        // toastr.success("Success: saved data successfully");
+                        closeModal();
+                        getdata();
+                    })
+                    .catch((error) => {
+                        // toastr.error("Error:", error);
+                    });
+            }
+        }
+        callNotificationMetaData();
+        // time display format
+
+
+        function time_format(time) {
+            var arr = time.split(":");
+            if (arr.length > 2) {
+                return time;
+            } else {
+                return time + ":00";
+            }
+        }
+        function cancel() {
+            if (window.sendData) window.sendData({ type: "cancel" });
+        }
+
+
+        //    Grid view for task
+
+        var selectElementNew = document.querySelector(".drop-filter2 select");
+
+        function getdata() {
+            let lib_auth = window["libAuth"];
+            let app_id = 1681793773847206;
+            var lead_id = document.getElementById("deal_id").value;
+            // let getdrdele=document.getElementById("drdid")
+            // const headers = {
+            //   // "access_key": "ab903fec-adc6-4d63-8e54-a289ff276cfb",
+            //   //     "application_id": lib_auth ? lib_auth.app_id : '1673590599278960',
+            //   access_key: lib_auth ? lib_auth.access_key: "3298b9bb-9441-450c-a85b-931878a72803",
+            //   application_id: lib_auth ? lib_auth.app_id : "1681793773847206",
+            //   account_id: lib_auth ? lib_auth.account_id : "1669010286070940",
+            //   "Content-Type": "application/json",
+            // };
+            var body = {
+                "leadid": lead_id, // here we pass lead id
+            };
+            fetch("https://s01w01.scocu.net/api/v1/views/1683625567935366/execute", {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(body),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    var id1 = data.data.map((items) => items.id);
+                    console.log(id1);
+                    var reversedData1 = data.data.slice().reverse();
+                    var newData1 = data.data;
+                    selectElementNew.addEventListener("change", () => {
+                        if (selectElementNew.value === "Recent Last") {
+                            newData1 = reversedData1;
+                        } else {
+                            newData1 = data.data;
+                        }
+                        display1(newData1);
+                    });
+                    if (selectElementNew.value === "Recent First") {
+                        display1(newData1);
+                    }
+                });
+        }
+        getdata();
+
+        function display1(data) {
+            var datadisplay1 = ``;
+            data.forEach((elements) => {
+                // var s_created_at = (elements.s_created_at) ? elements.s_created_at.split('T') : [''];
+                datadisplay1 += `<div class="d-flex  sample-card">
+<div class="d-flex justify-content-space-between align-items-center" >
+  <div class="prof-icon"><span class="profile-icon">${elements.subject[0]}</span>
+  </div>
+
+  <div class="detiles-data">
+    <h5 onclick="loadTaskData2(this)" id="${elements.id}">${elements.subject}</h5>
+
+    <ul>
+      <li>
+        <label class="det-tex-colr">Status :</label>
+        <label class="det-colr">${elements.status} |</label>
+        <label class="det-tex-colr">Priority :</label>
+        <label class="det-colr">${elements.prority} |</label>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="d-flex align-items-center items-detiles">
+  <div class="detiles-data">
+    <ul>
+      <li><label class="det-tex-colr ">Account Owner : </label> &nbsp; <label class="det-colr"
+          style="text-transform: capitalize;">${elements.taskowner}</label></li>
+      <li><label class="det-tex-colr">Created Time : </label> &nbsp; <label class="det-colr">${UTCDateString(elements.s_created_at)} </label></li>
+    </ul>
+  </div>
+  <div class="dropdown drop-down">
+      <a class="btn " data-toggle="dropdown">
+      <button class="btn-drop-down">
+        <img src="https://venus-scocu-assets.s3.amazonaws.com/1683700846020226"> </button></a>
+    
+      <div class="dropdown-menu dp-menu2" id="show_dropdowntask">
+        <button class="dropdown-item" data-id="${elements.id}" onclick="dualMethod(this)" >Edit</button>    
+        <button class="dropdown-item" data-del="${elements.id}" onclick="deleteTask(this)">Delete</button>
+        <button class="dropdown-item" onclick="loadTaskData2(this)" id="${elements.id}">View</button>
+        
+    </div>
+  </div></span>
+</div>
+
+</div>`;
+            });
+            $("#display").html(datadisplay1);
+        }
+
+        // edit script for task
+
+        // access key and application id
+        if (typeof lib_auth === "undefined" || lib_auth === null) {
+            let lib_auth = window["libAuth"];
+            let headers = {
+                "access_key": lib_auth ? lib_auth.access_key : 'c3c5d304-d372-46e4-93fa-82f4119ccc46',
+                "application_id": lib_auth ? lib_auth.app_id : '1681793773847206',
+                'Content-Type': 'application/json',
+            }
+            var base_url = lib_auth
+                ? lib_auth.base_url
+                : "https://s01w01.scocu.net/api/v1/";
+            var remainder_id1 = 0;
+        }
+        var contact_accounts = {};
+        function callNotificationMetaData1(selected_value = "") {
+            let body = {};
+            var notificationtypemeta1 =
+                '<option value=""> Select Notification Type </option>';
+            fetch("https://s01w01.scocu.net/api/v1/views/1682663663986278/execute", {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(body),
+            })
+                .then((response) => response.json())
+                //Then with the data from the response in JSON...
+                .then((data) => {
+                    data.data.forEach(function (c) {
+                        selected = "";
+                        if (selected_value == c.id) {
+                            selected = "selected";
+                        }
+                        notificationtypemeta1 +=
+                            '<option value="' + c.id + '" ' + selected + '> ' + c.value + " </option>";
+                    });
+                    document.getElementById("notificationtypemeta_edit").innerHTML =
+                        notificationtypemeta1;
+                })
+                //Then with the error genereted...
+                .catch((error) => {
+                    // toastr.error("Error:", error);
+                });
+            // fetch user data
+            var selectOwner2 = '<option value=""> Select Task Owner </option>';
+            var selectedOwner2 = lib_auth.current_user_info.name ?? "";
+            fetch("https://s01w01.scocu.net/api/v1/service_contract/1682492192777736", {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(body),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    var data = data.data.data;
+                    data.forEach((c) => {
+                        selected = "";
+                        if (selectedOwner2 === c.username) {
+                            selected = "selected";
+                            selectOwner2 += '<option value="' + c.username + '" ' + selected + '> ' + c.username + " </option>";
+                        } else {
+                            selectOwner2 += '<option value="' + c.username + '"> ' + c.username + " </option>";
+                        }
+                    });
+                    document.getElementById("task_owner_edit").innerHTML = selectOwner2;
+                })
+                .catch((error) => {
+                    // toastr.error("Error:", error);
+                });
+        }
+        function excuteTask1(selected_value = "") {
+            var val = document.getElementById("excuteTaskTo_edit").value;
+            let body = {};
+            document.getElementById("leadContactLabe_edit").innerHTML = val;
+            var leadContactData1 = '<option value=""> Select ' + val + " </option>";
+            if (val === "Lead") {
+                fetch("https://s01w01.scocu.net/api/v1/views/1683011044490677/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        data.data.forEach(function (c) {
+                            selected = "";
+                            if (selected_value == c.id) {
+                                selected = "selected";
+                            }
+                            leadContactData1 +=
+                                '<option value="' +
+                                c.id +
+                                '" ' +
+                                selected +
+                                "> " +
+                                c.firstname +
+                                c.lastname +
+                                " </option>";
+                        });
+                        document.getElementById("leadContactData_edit").innerHTML =
+                            leadContactData1;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error("Error:", error);
+                    });
+                document.getElementById("contact_form_edit").style.display = "none";
+            } else if (val === "Contact") {
+                fetch("https://s01w01.scocu.net/api/v1/views/1683012443326971/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        contact_accounts = {};
+                        data.data.forEach(function (c) {
+                            selected = "";
+                            if (selected_value == c.id) {
+                                selected = "selected";
+                            }
+                            leadContactData1 +=
+                                '<option value="' +
+                                c.id +
+                                '" ' +
+                                selected +
+                                "> " +
+                                c.firstname +
+                                c.lastname +
+                                " </option>";
+                            contact_accounts[c.id] = c.accountid;
+                        });
+                        document.getElementById("leadContactData_edit").innerHTML =
+                            leadContactData1;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error("Error:", error);
+                    });
+                document.getElementById("contact_form_edit").style.display = "block";
+            } else {
+                // toastr.error("Add task to feild is mandatory");
+                document.getElementById("contact_form_edit").style.display = "none";
+            }
+        }
+        function excuteDeals1() {
+            var val1 = document.getElementById("excuteDeal_edit").value;
+            var contact_id1 = document.getElementById("leadContactData_edit").value;
+            let body = { contact_id: contact_id };
+            document.getElementById("accountDealLabel_edit").innerHTML = val;
+            var accountDealData1 = '<option value=""> Select ' + val + " </option>";
+            if (val1 === "Deals") {
+                fetch("https://s01w01.scocu.net/api/v1/views/1683017986332388/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        data.data.forEach(function (c) {
+                            accountDealData1 +=
+                                '<option value="' +
+                                c.id +
+                                '"> ' +
+                                c.firstname +
+                                c.lastname +
+                                " </option>";
+                        });
+                        document.getElementById("accountDealData_edit").innerHTML =
+                            accountDealData1;
+                        document.getElementById("accountDealData_edit").disabled = false;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error("Error:", error);
+                    });
+            } else if (val1 === "Accounts") {
+                fetch("https://s01w01.scocu.net/api/v1/views/1683017864292343/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        const contact_id1 =
+                            document.getElementsByName("contact_lead_id1")[0].value;
+                        data.data.forEach(function (c) {
+                            if (contact_accounts[contact_id] === c.id) {
+                                accountDealData1 +=
+                                    '<option value="' +
+                                    c.id +
+                                    '" selected> ' +
+                                    c.accountname +
+                                    " </option>";
+                            } else {
+                                accountDealData1 +=
+                                    '<option value="' + c.id + '"> ' + c.accountname + " </option>";
+                            }
+                        });
+                        document.getElementById("accountDealData_edit").innerHTML =
+                            accountDealData1;
+                        document.getElementById("accountDealData_edit").disabled = true;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error("Error:", error);
+                    });
+            } else {
+                // toastr.error("Add Deals/Account field is mandatory");
+            }
+        }
+        function reminderCheckFunc1() {
+            if (document.getElementById("reminderCheck_edit").checked) {
+                document.getElementById("reminder_block_edit").style.display = "block";
+            } else {
+                document.getElementById("reminder_block_edit").style.display = "none";
+            }
+        }
+        function submitForm1() {
+            var id = document.getElementsByName("input_id1")[0].value ?? "0";
+            var subject1 = document.getElementsByName("subject1")[0].value ?? "";
+            var DueDate1 = document.getElementsByName("due_date1")[0].value ?? "";
+            var lead_id = document.getElementById("deal_id").value;
+            // var AddTaskTo = (document.getElementsByName("add_task_to1")[0].value) ?? '';
+            // var contactLead_id = (document.getElementsByName("contact_lead_id1")[0].value) ?? '';
+            // var AccountDealType = (document.getElementsByName("account_deal_type1")[0].value) ?? '';
+            // var AccountDealID = (document.getElementsByName("account_deal_id1")[0].value) ?? '';
+            var prority1 = document.getElementsByName("priority1")[0].value ?? "";
+            var TaskOwner1 = document.getElementsByName("task_owner1")[0].value ?? "";
+            var status1 = document.getElementsByName("status1")[0].value ?? "";
+            var remainder_switch1 =
+                document.getElementsByName("remainder_switch1")[0].checked ?? "";
+            var remainderDate1 =
+                document.getElementsByName("remainder_date1")[0].value ?? "";
+            var remainderTime1 =
+                document.getElementsByName("remainder_time1")[0].value ?? "";
+            var notifyType1 = document.getElementsByName("notify_type1")[0].value ?? "";
+            var is_valid = true;
+            if (subject1 == "") {
+                toastr.error("subject field is required");
+                is_valid = false;
+            } else if (DueDate1 == "") {
+                toastr.error("Due Date field is required");
+                is_valid = false;
+            }
+            // else if (AddTaskTo == "") {
+            //     toastr.error("AddTaskTo field is required")
+            //     is_valid = false;
+            // } else if (contactLead_id == "") {
+            //     toastr.error("contactLead_id field is required")
+            //     is_valid = false;
+            // }
+            else if (prority1 == "") {
+                toastr.error("Priority field is required");
+                is_valid = false;
+            } else if (TaskOwner1 == "") {
+                toastr.error("Task Owner field is required");
+                is_valid = false;
+            } else if (status1 == "") {
+                toastr.error("Status field is required");
+                is_valid = false;
+            }
+            // else if (Add Task To == "Contact") {
+            //     if (AccountDealType == "") {
+            //         toastr.error("AccountDealType field is required")
+            //         is_valid = false;
+            //     } else if (Account DealID == "") {
+            //         toastr.error("AccountDealID field is required")
+            //         is_valid = false;
+            //     }
+            // }
+            else if (document.getElementById("reminderCheck_edit").checked) {
+                if (remainderDate1 == "") {
+                    toastr.error("Reminder Date field is required");
+                    is_valid = false;
+                } else if (remainderTime1 == "") {
+                    toastr.error("Reminder Time field is required");
+                    is_valid = false;
+                } else if (notifyType1 == "") {
+                    toastr.error("Notify Type field is required");
+                    is_valid = false;
+                }
+            }
+            remainder_is_delete1 = 0;
+            if (remainder_switch1 == false && remainder_id1 != 0) {
+                remainder_is_delete = 1;
+            }
+            // if (is_valid === true) {
+            var body = {
+                "id": id,
+                "remainder_id": remainder_id1,
+                "subject": subject1,
+                "Due Date": DueDate1,
+                "Add Task To": "Deals",
+                "typeofid": lead_id,
+                "contact/lead_id": lead_id,
+                // "Account/Deal Type": AccountDealType,
+                // "Account/Deal ID": AccountDealID,
+                "prority": prority1,
+                "Task Owner": TaskOwner1,
+                "status": status1,
+                "remainder_is_delete": remainder_is_delete1,
+                "remainder_switch": remainder_switch1 == true ? 1 : 0,
+                "remainder date": remainderDate1,
+                "remainder time": remainderTime1 ? time_format(remainderTime1) : "",
+                "notify type": notifyType1,
+            };
+            fetch(
+                "https://s01w01.scocu.net/api/v1/service_contract/1683614987734297",
+                {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                }
+            )
+                .then((response) => response.json())
+                .then((data) => {
+                    // toastr.success("Success: saved data successfully");
+                    closeModal1();
+                    getdata();
+                })
+                .catch((error) => {
+                    // toastr.error("Error:", error);
+                });
+            // }
+        }
+
+        function maxdate1(value) {
+            var max = document.getElementsByName("due_date1")[0]
+            var today = max.value;
+
+            document.getElementById("remMax1").value = "";
+            document.getElementById("remMax1").setAttribute("max", today);
+        }
+
+        function EditsubjectErrorMsg() {
+            var errormsg1 = document.getElementById("subjectError1")
+            var showmsg1 = errormsg1.innerHTML = "maximum 25 characters allowed only";
+            errormsg1.style.display = "block"
+
+        }
+
+
+
+
+        function cancel1() {
+            if (window.sendData) window.sendData({ type: "cancel" });
+        }
+
+        function dualMethod(event) {
+            loadTaskData1(event);
+            // onclicl();
+
+        }
+
+        function onclicl() {
+            var ee1 = document.getElementById("subjectError1")
+            ee1.style.display = "none";
+        }
+
+        function loadTaskData1(evt) {
+
+
+            console.log(evt);
+            var id = evt.getAttribute("data-id");
+            if (id === "") {
+                cancel();
+            } else {
+                let body = { id: id };
+                fetch("https://s01w01.scocu.net/api/v1/views/1683098452050409/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+
+                        console.log(data);
+                        var edit = ``;
+                        data.data.forEach(function (ele) {
+                            if (ele.remainder_id) {
+                                var style = "";
+                            } else {
+                                var style = `style="display:none"`;
+                            }
+                            var checked = (ele.remainder_id) ? "checked" : "";
+                            var due_date = ele.duedate ? ele.duedate.split("T") : [""];
+                            var remainderDate = ele.remainderdate ? ele.remainderdate.split("T") : [""];
+                            edit += `<div class="main-popup">
+  <form class="formContainer">
+  <div class="discountPopup-header">
+  <h2>Edit Task</h2>
+  <button aria-label="Close" class="cls"  onclick="closeModal1()" type="button"><span aria-hidden="true">&times;</span></button>
+  </div>
+  
+  <div class="popup">
+  <div class="popup-data"><lable>Subject <span class="red_color"> *</span></lable><br />
+  <input name="input_id1" type="hidden" value="${ele.id}" /> 
+  <input name="subject1" type="text"  maxlength="25" style="width: 100%;"  onclick="EditsubjectErrorMsg()" value="${ele.subject}"  /><br />
+<span id="subjectError1" class="validation-message">&nbsp;</span><br>
+  <lable>Due Date <span class="red_color"> *</span></lable><br/>
+  <input name="due_date1" type="Date"  value="${due_date[0]}" style="cursor: pointer;" onchange="maxdate1(${due_date[0]})"/><br />
+  <!-- <label>Add task to</label><br />
+  <select id="excuteTaskTo_edit" name="add_task_to1" onchange="excuteTask()"><option value="">Select</option><option value="Lead">Lead</option><option value="Contact">Contact</option> </select><br />
+  <br /> 
+  <!-- <label id="leadContactLabel_edit">Lead</label><br />
+  <select id="leadContactData_edit" name="contact_lead_id1" onchange="excuteDeals()"><option>---</option> </select><br />
+  &nbsp;
+  <div id="contact_form_edit"><label>Account/Deals</label><br />
+  <select id="excuteDeal_edit" name="account_deal_type1" onchange="excuteDeals()"><option value="">Select</option><option value="Accounts">Accounts</option><option value="Deals">Deals</option> </select><br />
+  &nbsp;
+  <div id="account_deal_id"><label id="accountDealLabel_edit">Lead</label><br />
+  <select id="accountDealData_edit" name="account_deal_id1"><option value="">---</option> </select><br />
+  &nbsp;</div>
+  </div> -->
+  <label>Priority <span class="red_color"> *</span></label><br />
+  <select name="priority1" value=""><option value="High" ${(ele.prority == "High") ? 'selected' : ''}>High</option><option value="Medium" ${(ele.prority == "Medium") ? 'selected' : ''}>Medium</option><option value="Low" ${(ele.prority == "Low") ? 'selected' : ''}>Low</option> </select><br />
+  <br />
+  <label>Task Owner <span class="red_color"> *</span></label><br /> 
+  <select id="task_owner_edit" name="task_owner1" ><option value=""></option> </select><br />
+  <br />
+  <label>Status <span class="red_color"> *</span></label><br />
+  <label><select name="status1" value="" id ="statusid"><option value="Open" ${(ele.status == "Open") ? 'selected' : ''}>Open</option><option value="Close" ${(ele.status == "Close") ? 'selected' : ''}>Close</option> </select> </label><br />
+  <label>Reminder</label>
+  
+  <div class="reminder d-flex"><input class="remin" type="text" disabled="disabled"/><br />
+  <!-- Default switch -->
+  <div class="custom-control custom-switch"><label class="switch"><input class="custom-control-input" id="reminderCheck_edit" name="remainder_switch1" onclick="reminderCheckFunc1()" type="checkbox" ${checked}/> <span class="slider round">&nbsp;</span> </label></div>
+  </div>
+  
+ <div id="reminder_block_edit" ${style}>
+                        <div class="date-time d-flex">
+                        <div class="date d-flex">
+                        <div><label>Date <span class="red_color"> *</span></label><br />
+                        <input class="remin" name="remainder_date1" type="date" value="${remainderDate[0]}" style="cursor: pointer;" id="remMax1" /></div>
+                        
+                        <div><label>Time <span class="red_color"> *</span></label><br />
+                        <input class="remin" name="remainder_time1" type="time" value="${ele.remaindertime ? time_format(ele.remaindertime) : ""}" style="cursor: pointer;"/></div>
+                        </div>
+                        </div>
+                        <label>Notify <span class="red_color"> *</span></label> <select id="notificationtypemeta_edit" name="notify_type1"><option value="">Select Notification Type</option> </select></div>
+                        </div>
+                        </div>
+  
+  <div class="discountPopup-footer" id="div_footer">
+  <div class="fomr-group">
+  <div class="popup-btn"><button class="btn-save" onclick="submitForm1()" type="button">Save</button><button class="btn-cnl" onclick="closeModal1()" type="button">Cancel</button></div>
+  </div>
+  </div>
+  </form>
+  </div>`;
+                            $("#Additems1").html(edit);
+                            var newDueDate = document.getElementsByName("due_date1")[0].value
+                            var today_date1 = newDueDate;
+                            var today_date2 = new Date().toISOString().slice(0, 10);
+                            document.getElementsByName("due_date1")[0].setAttribute("min", today_date2)
+                            document.getElementsByName("due_date1")[0].setAttribute("max", today_date1)
+                            document.getElementsByName("remainder_date1")[0].setAttribute("min", today_date2);
+                            document.getElementsByName("remainder_date1")[0].setAttribute("max", today_date1);
+                            document.getElementById("notificationtypemeta_edit").value = ele.notificationtypeid;
+                            document.getElementById("task_owner_edit").value = ele.taskowner;
+                            callNotificationMetaData1(ele.notificationtypeid, ele.taskowner);
+
+
+
+                        });
+
+                        $("#Additems1").show();
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        console.log("Error:", error);
+                    });
+            }
+        }
+
+
+        // delete functionality
+
+        function deleteTask(ev) {
+
+            var id = ev.getAttribute("data-del");
+            var deletemodalpopuptask = document.querySelector('#deletetask1');
+            deletemodalpopuptask.style.display = 'block';
+            var deleteButtonpopuptask = document.getElementById('del');
+            deleteButtonpopuptask.setAttribute('data-id', id)
+
+            console.log(id);
+            // const headers = {
+            //   access_key: lib_auth
+            //     ? lib_auth.access_key
+            //     : "1986eb97-db7d-452d-9cb2-c2d044bab249",
+            //   application_id: lib_auth ? lib_auth.app_id : "1681793773847206",
+            //   "Content-Type": "application/json",
+            // };
+
+        }
+        function deletetaskfun() {
+            var deleteButtonpopuptask = document.getElementById('del');
+            var id = deleteButtonpopuptask.getAttribute("data-id");
+            var body = {
+                id: id, // notes & Attachments table id
+            };
+            fetch("https://s01w01.scocu.net/api/v1/service_contract/1683032697008415", {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(body),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    document.getElementById("deletetask1").style.display = 'none'
+                    // alert("Are you sure you want to delete this Task?");
+                    getdata();
+                })
+                .catch((errors) => {
+                    alert("Error");
+                });
+        }
+
+        var contact_accounts = {};
+        function callNotificationMetaData2(selected_value = "") {
+            let body = {};
+            var notificationtypemeta =
+                '<option value=""> Select Notification Type </option>';
+            fetch("https://s01w01.scocu.net/api/v1/views/1682663663986278/execute", {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(body),
+            })
+                .then((response) => response.json())
+                //Then with the data from the response in JSON...
+                .then((data) => {
+                    data.data.forEach(function (c) {
+                        selected = "";
+                        if (selected_value == c.id) {
+                            selected = "selected";
+                        }
+                        notificationtypemeta +=
+                            '<option value="' + c.id + '" ' + selected + '> ' + c.value + " </option>";
+                    });
+                    document.getElementById("notificationtypemeta_view").innerHTML =
+                        notificationtypemeta;
+                })
+                //Then with the error genereted...
+                .catch((error) => {
+                    //   toastr.error("Error:", error);
+                    // alert("error1")
+                });
+            // fetch user data
+            var selectOwner1 = '<option value=""> Select Task Owner </option>';
+            var selectedOwner1 = lib_auth.current_user_info.name ?? "";
+            fetch(
+                "https://s01w01.scocu.net/api/v1/service_contract/1682492192777736",
+                {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                }
+            )
+                .then((response) => response.json())
+                .then((data) => {
+                    var data = data.data.data;
+                    data.forEach((c) => {
+                        selected = "";
+                        if (selectedOwner1 === c.username) {
+                            selected = "selected";
+                            selectOwner1 += '<option value="' + c.username + '" ' + selected + '> ' + c.username + " </option>";
+                        } else {
+                            selectOwner1 +=
+                                '<option value="' +
+                                c.username +
+                                '"> ' +
+                                c.username +
+                                " </option>";
+                        }
+                    });
+                    document.getElementById("task_owner_view").innerHTML = selectOwner1;
+                })
+                .catch((error) => {
+                    // toastr.error('Error:', error);
+                    //   alert("error4");
+                });
+        }
+        function excuteTask2(selected_value = "") {
+            var val = document.getElementById("excuteTaskTo_view").value;
+            let body = {};
+            document.getElementById("leadContactLabel_view").innerHTML = val;
+            var leadContactData = '<option value=""> Select ' + val + " </option>";
+            if (val === "Lead") {
+                fetch(base_url + "views/1683011044490677/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        data.data.forEach(function (c) {
+                            selected = "";
+                            if (selected_value == c.id) {
+                                selected = "selected";
+                            }
+                            leadContactData +=
+                                '<option value="' +
+                                c.id +
+                                '" ' +
+                                selected +
+                                "> " +
+                                c.firstname +
+                                c.lastname +
+                                " </option>";
+                        });
+                        document.getElementById("leadContactData_view").innerHTML =
+                            leadContactData;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error('Error:', error);
+                        alert("error");
+                    });
+                document.getElementById("contact_form_view").style.display = "none";
+            } else if (val === "Contact") {
+                fetch(base_url + "views/1683012443326971/execute", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body),
+                })
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        contact_accounts = {};
+                        data.data.forEach(function (c) {
+                            selected = "";
+                            if (selected_value == c.id) {
+                                selected = "selected";
+                            }
+                            leadContactData +=
+                                '<option value="' +
+                                c.id +
+                                '" ' +
+                                selected +
+                                "> " +
+                                c.firstname +
+                                c.lastname +
+                                " </option>";
+                            contact_accounts[c.id] = c.accountid;
+                        });
+                        document.getElementById("leadContactData_view").innerHTML =
+                            leadContactData;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error('Error:', error);
+                        alert("error3");
+                    });
+                document.getElementById("contact_form_view").style.display = "block";
+            } else {
+                // toastr.error('Add task to feild is mandatory');
+                document.getElementById("contact_form_view").style.display = "none";
+            }
+        }
+        function excuteDeals2() {
+            var val = document.getElementById("excuteDeal_view").value;
+            var contact_id = document.getElementById("leadContactData_view").value;
+            let body = { contact_id: contact_id };
+            document.getElementById("accountDealLabel").innerHTML = val;
+            var accountDealData = '<option value=""> Select ' + val + " </option>";
+            if (val === "Deals") {
+                fetch(
+                    "https://s01w01.scocu.net/api/v1/views/1683017986332388/execute",
+                    {
+                        method: "POST",
+                        headers: headers,
+                        body: JSON.stringify(body),
+                    }
+                )
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        data.data.forEach(function (c) {
+                            accountDealData +=
+                                '<option value="' +
+                                c.id +
+                                '"> ' +
+                                c.firstname +
+                                c.lastname +
+                                " </option>";
+                        });
+                        document.getElementById("accountDealData_view").innerHTML =
+                            accountDealData;
+                        document.getElementById("accountDealData_view").disabled = false;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error('Error:', error);
+                        alert("error2");
+                    });
+            } else if (val === "Accounts") {
+                fetch(
+                    "https://s01w01.scocu.net/api/v1/views/1683017864292343/execute",
+                    {
+                        method: "POST",
+                        headers: headers,
+                        body: JSON.stringify(body),
+                    }
+                )
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        const contact_id =
+                            document.getElementsByName("contact_lead_id")[0].value;
+                        data.data.forEach(function (c) {
+                            if (contact_accounts[contact_id] === c.id) {
+                                accountDealData +=
+                                    '<option value="' +
+                                    c.id +
+                                    '" selected> ' +
+                                    c.accountname +
+                                    " </option>";
+                            } else {
+                                accountDealData +=
+                                    '<option value="' +
+                                    c.id +
+                                    '"> ' +
+                                    c.accountname +
+                                    " </option>";
+                            }
+                        });
+                        document.getElementById("accountDealData_view").innerHTML =
+                            accountDealData;
+                        document.getElementById("accountDealData_view").disabled = true;
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        // toastr.error('Error:', error);
+                    });
+            } else {
+                //     toastr.error('Add Deals/Account field is mandatory');
+            }
+        }
+        function reminderCheckFunc2() {
+            if (document.getElementById("reminderCheck_view").checked) {
+                document.getElementById("reminder_block_view").style.display = "block";
+            } else {
+                document.getElementById("reminder_block_view").style.display = "none";
+            }
+        }
+        function time_format(time) {
+            var arr = time.split(":");
+            if (arr.length > 2) {
+                return time;
+            } else {
+                return time + ":00";
+            }
+        }
+        function cancel() {
+            if (window.sendData) window.sendData({ type: "cancel" });
+        }
+        function loadTaskData2(el) {
+            console.log(el.id);
+
+            var id = el.id;
+            console.log(id);
+            if (id === "") {
+                cancel();
+            } else {
+                let body = { id: id };
+                fetch(
+                    "https://s01w01.scocu.net/api/v1/views/1683098452050409/execute",
+                    {
+                        method: "POST",
+                        headers: headers,
+                        body: JSON.stringify(body),
+                    }
+                )
+                    .then((response) => response.json())
+                    //Then with the data from the response in JSON...
+                    .then((data) => {
+                        console.log(data);
+                        var edit1 = ``;
+                        data.data.forEach(function (el) {
+                            if (el.remainder_id) {
+                                var style1 = "";
+                            } else {
+                                var style1 = `style="display:none"`;
+                            }
+                            var checked1 = el.remainder_id ? "checked" : "";
+                            var due_date = el.duedate ? el.duedate.split("T") : [""];
+                            var remainderDate = el.remainderdate
+                                ? el.remainderdate.split("T")
+                                : [""];
+                            edit1 += `<div class="main-popup">
+  <form class="formContainer">
+  <div class="discountPopup-header d-flex justify-content-space-between ">
+  <h2>View Task</h2>
+  <button class="btn-cls cls" aria-label="Close"  onclick="closeModalview(event)" type="button"><span aria-hidden="true">&times;</span></button>
+  </div>
+  
+  <div class="popup">
+  <div class="popup-data"i><lable>Subject</lable><br />
+  <input name="input_id2" type="hidden" value="${el.id}" /> <input name="subject2" type="text" value="${el.subject}" disabled="disabled" /><br />
+  <lable>Due Date</lable><br/>
+  <input name="due_date2" type="Date"  value="${due_date[0]}" disabled="disabled"/><br />
+  <!-- <label>Add task to</label><br />
+  <select id="excuteTaskTo_view" name="add_task_to2" onchange="excuteTask()"><option value="">Select</option><option value="Lead">Lead</option><option value="Contact">Contact</option> </select><br />
+  <br /> 
+  <!-- <label id="leadContactLabel_edit">Lead</label><br />
+  <select id="leadContactData_view" name="contact_lead_id2" onchange="excuteDeals()"><option>---</option> </select><br />
+  &nbsp;
+  <div id="contact_form_edit"><label>Account/Deals</label><br />
+  <select id="excuteDeal_view" name="account_deal_type2" onchange="excuteDeals()"><option value="">Select</option><option value="Accounts">Accounts</option><option value="Deals">Deals</option> </select><br />
+  &nbsp;
+  <div id="account_deal_id"><label id="accountDealLabel_view">Lead</label><br />
+  <select id="accountDealData_view" name="account_deal_id1"><option value="">---</option> </select><br />
+  &nbsp;</div>
+  </div> -->
+  <label>Priority</label><br />
+  <select name="priority2" value="" disabled="disabled"><option value="High" ${el.prority == "High" ? "selected" : ""}>High</option><option value="Medium" ${el.prority == "Medium" ? "selected" : ""}>Medium</option><option value="Low" ${el.prority == "Low" ? "selected" : ""}>Low</option> </select><br />
+  <br />
+  <label>Task Owner</label><br />
+  <select id="task_owner_view" name="task_owner2" value="" disabled="disabled"><option></option> </select><br />
+  <br />
+  <label>Status</label><br />
+  <label><select name="status2" value="" id ="statusid" disabled="disabled"><option value="Open" ${el.status == "Open" ? "selected" : ""
+                                }>Open</option><option value="Close" ${el.status == "Close" ? "selected" : ""}>Close</option> </select> </label><br />
+  <label>Reminder</label>
+  
+  <div class="reminder d-flex"><input class="remin" type="text" disabled="disabled" /><br />
+  <!-- Default switch -->
+  <div class="custom-control custom-switch"><label class="switch"><input class="custom-control-input" id="reminderCheck_view" name="remainder_switch2" onclick="reminderCheckFunc2()" type="checkbox" ${checked1}/> <span class="slider round">&nbsp;</span> </label></div>
+  </div>
+  
+  <div id="reminder_block_view" ${style1}>
+  <div class="date-time d-flex">
+  <div class="date d-flex">
+  <div><label>Date</label><br />
+  <input class="remin" name="remainder_date2" type="date" value="${remainderDate[0]}" disabled="disabled"/></div>
+  
+  <div><label>Time</label><br />
+  <input class="remin" name="remainder_time2" type="time" value="${el.remaindertime ? time_format(el.remaindertime) : ""
+                                }" disabled="disabled"/></div>
+  </div>
+  </div>
+  <label>Notify</label> <select id="notificationtypemeta_view" name="notify_type1" value="" disabled="disabled"><option value="">Select Notification Type</option> </select></div>
+  </div>
+  </div>
+  
+  <div class="discountPopup-footer" id="div_footer">
+  <div class="fomr-group">
+
+  </div>
+  </div>
+  </form>
+  </div>`;
+                            $("#viewpopup").html(edit1);
+                            document.getElementById("notificationtypemeta_view").value =
+                                el.notificationtypeid;
+                            document.getElementById("task_owner_view").value =
+                                el.taskowner;
+                            callNotificationMetaData2(el.notificationtypeid, el.taskowner);
+                        });
+
+
+
+                        $("#viewpopup").show();
+                    })
+                    //Then with the error genereted...
+                    .catch((error) => {
+                        console.log("Error:", error);
+                    });
+                document.getElementById("viewpopup").style.display = "block";
+            }
+        }
+
+        function hideDropdown() {
+            if (!document.getElementById('show_dropdown').hidden) {
+
+                document.getElementById('show_dropdown').hidden = !document.getElementById('show_dropdown').hidden;
+
+            }
+
+        }
+        function hidetaskDropdown() {
+            if (!document.getElementById('show_dropdowntask').hidden) {
+
+                document.getElementById('show_dropdowntask').hidden = !document.getElementById('show_dropdowntask').hidden;
+
+            }
+
+        }
+
+
+
+    </script>
+</div>
